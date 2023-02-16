@@ -1,0 +1,118 @@
+.pa-footer-three {
+    background: url("/images/banner-shape.png")#6caaa8;
+    background-size: cover;
+    padding: 72px 0 42px;
+    background-position: center;
+}
+.pa-foot-box img, .pa-foot-box {
+    margin-bottom: 30px;
+}
+div {
+    display: block;
+}
+.pa-foot-title {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 30px;
+    margin-left: -122px;
+
+}
+/* h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+} */
+/* ul {
+    margin: 0;
+    padding: 0;
+} */
+.pa-foot-box ul li {
+    margin-bottom: 10px;
+    list-style: none;
+    display: list-item;
+}
+
+.pa-foot-box p, .pa-foot-box a {
+    color: #fff;
+    transition: 0.3s;
+}
+.pa-newsletter {
+    position: relative;
+    margin-bottom: 25px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.pa-newsletter input {
+    padding-right: 170px;
+    border: none;
+}
+input {
+    width: 100%;
+    height: 50px;
+    padding: 0px 20px;
+    border: 1px solid #6caaa8;
+    outline: none;
+    border-radius: 50px;
+}
+.pa-btn {
+    background: #6caaa8;
+    color: #fff;
+    padding: 0px 20px;
+    min-width: 160px;
+    height: 50px;
+    line-height: 46px;
+    border: none;
+    border-radius: 50px;
+    text-transform: capitalize;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #6caaa8;
+    transition: 0.3s;
+    display: inline-block;
+}
+.pa-newsletter .pa-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 40px;
+    line-height: 36px;
+}
+.pa-foot-box ul li:last-child, .pa-foot-box p {
+    margin-bottom: 0px;
+}
+.pa-copyright.pa-copyright-two {
+    background: #589a98;
+}
+.pa-copyright {
+    /* background: #6caaa8; */
+    padding: 12px 0;
+    text-align: center;
+}
+.pa-copyright p, .pa-copyright p a {
+    margin: 0;
+    color: #fff;
+    transition: 0.3s;
+}
+@media screen and (max-width: 767px){
+    .pa-footer, .pa-footer-two, .pa-footer-three {
+        padding: 52px 0 23px;
+    }
+}
+@media screen and (max-width: 767px){
+    .pa-foot-title, .pa-foot-box img {
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 767px){
+    .pa-foot-title, .pa-foot-box img {
+        margin-bottom: 20px;
+    }
+}
+

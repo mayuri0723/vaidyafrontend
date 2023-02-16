@@ -1,0 +1,27 @@
+
+
+/* Create a responsive, centered, three-column grid. */
+/* .doctorcard-container {
+	align-items: start;
+	display: grid;
+	grid-gap: 16px;
+  color: blue;
+	grid-template-columns: repeat(auto-fit, 300px);
+	justify-content: center;
+} */
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  /* color: #fff ; */
+  /* background-color: #0078D4; */
+  border-color: #ccc #ccc #FCFCFC;
+}
+
+.TabTable tbody{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.myClass a {
+  border: 2px solid black;
+  color: #0078D4;
+}

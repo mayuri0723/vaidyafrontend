@@ -1,0 +1,29 @@
+.firstCard {
+    width: 268px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #e8f7ff;
+    background-clip: border-box;
+    border: 0px;
+    border-radius: 3.25rem;
+}
+
+.cardDemo {
+    display: flex;
+    justify-content: space-around;
+}
+.Detailedcard{
+  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #e8f7ff;
+    background-clip: border-box;
+    border: 0px !important;
+    border-radius:1.25rem;
+}

@@ -1,0 +1,88 @@
+.wrapper {
+  /* background-image: url("/images/rbackground.png"); */
+  /* background: #0078D4; */
+  /* background: linear-gradient(top left, #0078D4 0%, #0078D5 100%);
+  background: linear-gradient(to bottom right, #0078D4 0%, #0078D5 100%); */
+  /* position: absolute; */
+  /* top: 50%; */
+  left: 0;
+  /* width: 65%; */
+  /* height: 400px; */
+  /* margin-top: -200px; */
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 100px; */
+
+  width: 54%;
+  /* height: 400px; */
+  /* margin-top: -200px; */
+  margin-top: 55px;
+  margin-bottom: 14px;
+
+}
+
+.fr {
+  /* background-image: url("/images/rbackground.png"); */
+  /* background-image: url("/images/clean-medical-background_53876-97927.webp"); */
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  width: 100%;
+  background-size: 100%;
+  /* background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%; */
+}
+
+@media(max-width:768px) {
+  .fr {
+    /* background-image: url(""); */
+    background-repeat: no-repeat;
+    margin-top: 0px;
+  }
+
+}
+
+
+
+.formContent {
+  /* background-image: url("/images/clean-medical-background_53876-97927.webp");
+    display: block; */
+  /* width: 499px; */
+  height: auto;
+  /* margin: 151px; */
+  /* padding: 10px; */
+  border-radius: 15px;
+  /* background-color: rgb(84, 84, 84); */
+  font-size: 16px;
+  font-family: 'Arial';
+  color: rgb(255, 255, 255);
+
+}
+
+
+.wrapper.form-success .formContent h1 {
+  transform: translateY(85px);
+}
+
+.userimage-upload {
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+  margin: 100px auto 0px auto;
+  overflow-y: hidden;
+}
+
+.userimage-upload>input {
+  display: none;
+}
+
+.userimage-upload img {
+  width: 80px;
+  cursor: pointer;
+  position: absolute;
+  top: 212px;
+  left: 330px;
+  color: var(--white);
+}

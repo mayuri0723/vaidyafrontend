@@ -1,0 +1,27 @@
+/* .prescription-select {
+  width: 150px;
+  margin: 10px;
+}
+.prescription-select:focus {
+  min-width: 150px;
+  width: auto;
+} */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+input[type=file]{
+  opacity:0;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.image-upload{
+  display:inline-block;
+  position:relative
+}

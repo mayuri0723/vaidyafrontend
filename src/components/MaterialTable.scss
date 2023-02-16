@@ -1,0 +1,39 @@
+.materialTableStyling{
+    width: 100%;
+    box-shadow: 0px 0px 10px #00000040;
+    padding: 11px;
+    font-family: sans-serif;
+    font-size: 15px;
+    border-radius: 8px;
+ }
+.filterSize input[type="search"] {
+   height: 0px!important;
+ }
+
+ .MuiTableCell-root:first-of-type {
+   padding: 4px;
+   // padding-left: 24px;
+}
+
+.priority_Routine_blue {
+   color: blue;
+ }
+ .urgent-priority {
+   color: #ff0000;
+ }
+
+ .MuiTableCell-root {
+    padding: 7px;
+ }
+
+ .css-l6w8pl-MuiToolbar-root-MuiTablePagination-toolbar {
+   position: relative;
+   display: flex;
+   align-items: center;
+   // padding-left: 16px;
+   // padding-right: 16px;
+   // min-height: 56px;
+   // min-height: 52px;
+   // padding-right: 2px;
+   height: 40px;
+}

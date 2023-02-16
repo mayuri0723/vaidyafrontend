@@ -1,0 +1,31 @@
+.clinical table{ 
+    margin: auto;
+    border: none;
+    width: 100%;
+    
+}
+.clinical{ 
+    width: 100%; 
+}
+
+.clinical td, .clinical th {
+    border: 0px solid #ddd;
+    padding: 8px;
+}
+.clinical th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #589a98;
+    color: white;
+}
+
+.clinic-input{
+    width: 17%;
+    height: 34px;
+    padding: 1px 6px;
+    border: 1px solid #6caaa8;
+    outline: none;
+    border-radius: 6px;
+
+}

@@ -1,0 +1,285 @@
+.spacer-bottom {
+    padding-bottom: 80px;
+}
+
+.spacer-top {
+    padding-top: 80px;
+}
+
+.pa-about-img {
+    position: relative;
+    width: fit-content;
+}
+
+.pa-about-img img {
+    border-radius: 10px;
+}
+
+.pa-about-content .pa-heading,
+.pa-services-content .pa-heading,
+.pa-why-pure .pa-heading {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.pa-heading img {
+    opacity: 0.4;
+}
+
+.pa-about-content .pa-heading h1 {
+    margin-top: 10px;
+}
+
+.pa-heading h1 {
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    font-size: 32px;
+}
+
+.pa-heading h5 {
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-size: 20px;
+    color: #6caaa8;
+}
+
+.pa-about-content p:last-child {
+    margin: 0;
+}
+
+/* p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+} */
+.pa-counter {
+    margin-bottom: 180px;
+}
+
+.pa-why,
+.pa-counter,
+.pa-tesimonial,
+.pa-why-pure,
+.pa-team-home {
+    background: rgba(108, 170, 168, 0.1);
+}
+
+/* .pa-counter-main {
+    margin-bottom: -180px;
+} */
+.pa-counter-box {
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 7%);
+    border-radius: 10px;
+    padding: 30px 30px 23px;
+    transition: 0.3s;
+}
+
+.pa-counter-box svg {
+    width: 50px;
+    height: auto;
+    fill: #6caaa8;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+.pa-counter-box h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.pa-counter-box p {
+    margin-bottom: 0;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.pa-product,
+.pa-blog,
+.pa-why-pure,
+.pa-team,
+.pa-price-plan {
+    padding-bottom: 50px;
+}
+
+.ps-team-box {
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 7%);
+    border-radius: 10px;
+    padding-bottom: 13px;
+    margin-bottom: 30px;
+}
+
+.ps-team-box img {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+}
+
+.pa-team-social {
+    background: #fff;
+    padding: 20px 0 0 0;
+    margin: 0px 20px 0;
+    z-index: 1;
+    position: relative;
+    border-radius: 4px 4px 0px 0px;
+    transition: 0.3s;
+}
+
+.pa-team-social li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.pa-team-social li a {
+    width: 28px;
+    height: 28px;
+    display: block;
+    border: 1px solid #6caaa8;
+    border-radius: 4px;
+    line-height: 25px;
+    transition: 0.3s;
+}
+
+/* a {
+    color: #242424;
+    transition: 0.3s;
+} */
+.pa-team-social li svg {
+    fill: #6caaa8;
+    width: 14px;
+}
+
+.ps-team-box h2 {
+    font-size: 20px;
+    margin: 12px 0 5px;
+    text-transform: capitalize;
+}
+
+.ps-team-box p {
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+}
+
+.pas-testi-img:before,
+.pa-about-img:before,
+.pa-services-img:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #d5fffe;
+    z-index: -1;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.ps-team-box .pa-team-social:hover {
+    transform: translateY(-20px);
+}
+
+.pa-counter-box:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: white;
+}
+
+.pa-team-home {
+    background: rgba(108, 170, 168, 0.1);
+}
+
+.pa-counter {
+    background: rgba(108, 170, 168, 0.1);
+}
+
+:root {
+    --dark: #373349;
+    --gap: 15px;
+    --width: 240px;
+    --height: var(--width);
+}
+
+.Grids {
+    margin: var(--gap);
+}
+
+.imageGrid>a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    overflow: hidden;
+}
+
+.imageGrid>a::after {
+    content: "";
+    background: linear-gradient(transparent, black);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    transition-duration: .75s;
+}
+
+.imageGrid>a:hover::after {
+    transform: translateY(50%);
+}
+
+.imageGrid>a>* {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 1s;
+}
+
+.imageGrid>a:hover>img {
+    transform: scale(1.05);
+}
+
+.imageGrid {
+    display: grid;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(var(--width), 1fr));
+    grid-auto-rows: var(--height);
+    grid-auto-flow: dense;
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.imgSmall {
+    width: 550px;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.imgPanchkarmaback {
+    height: 400px;
+    width: 1125px;
+    margin-top: 10px;
+}

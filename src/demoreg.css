@@ -1,0 +1,248 @@
+
+.mat-form .form-group{
+display: inline-block;
+width: 53%;
+margin-left: 137px;
+/* font-family: Roboto,sans-serif; */
+}
+
+/* body {
+ 
+  overflow-y: hidden;
+  overflow-x: hidden;
+} */
+/* .react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+    width: 81%;
+    margin: 0px 0px 0px 2px;
+    bottom: 3.5px;
+    position: absolute;
+    padding-block: 7px;
+    /* border: 0px; */
+    /* border-block-end-color: #3F51B5;
+  /* border: 0px; */
+  /* border-block-end-color: #3F51B5; 
+} */
+
+.mat-btn{
+background: #3F51B5;
+box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+padding: 7px 15px;
+color: #fff;
+font-size: 14px;
+text-transform: uppercase;
+}
+.mat-btn:hover{
+  opacity: 1;
+  transition: .4s ease;
+  color: #fff;
+}
+.mat-card{
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  padding: 24px;
+  border-radius: 2px;
+  /* background: #fff; */
+  margin-top: 19px;
+  backdrop-filter: blur( 4px );
+  /* margin-top: 100px; */
+}
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); */
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+} */
+
+/* body {
+  background-color: #4b111b;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+/****************
+      FORM
+*****************/
+.signup {
+  background-color: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 315px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 19px 8px -3px rgb(0 0 0 / 1%), 0 11px 9px 3px rgb(0 0 0 / 27%);
+  /* border-radius: 20px;
+  box-shadow: 0 13px 10px -3px rgb(0 0 0 / 0%), 0 8px 9px 3px rgb(0 0 0 / 10%); */
+  height: 50px;
+  margin: 26px 0 0 430px;
+  /* background-color: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); */
+}
+
+.signup__input select {
+  width: 100%;
+  border:none;
+  height: 100%;
+  border-color: white;
+  font-size: 20px;
+  /* font-size: 1.2rem; */
+  padding: 10px 2px 0;
+  /* border-bottom: 2px solid #e0e0e0; */
+}
+
+
+@media(max-width:768px) {
+  .signup {
+    
+    margin: 0px 0 0 0px;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #a4243b;
+}
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: lighter;
+
+  margin-bottom: 19px;
+}
+
+h2 span {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #a4243b;
+}
+
+/*  Field */
+.signup__field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  margin-bottom: 11px;
+  /* margin-bottom: 50px; */
+}
+
+.signup__field:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #a4243b;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s ease;
+}
+
+.signup__field:hover:before {
+  width: 100%;
+}
+
+/*  Input */
+.signup__input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  /* font-size: 1.2rem; */
+  padding: 10px 2px 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/*  Label */
+.signup__label {
+  color: #958a8a;;
+  position: absolute;
+  top:28%;
+  /* top: 50%; */
+  transform: translateY(-50%);
+  left: 2px;
+  font-size: 17px;
+  /* font-size: 1.2rem; */
+  transition: all 0.3s ease;
+}
+
+.signup__input:focus + .signup__label,
+.signup__input:valid + .signup__label {
+  top: 0;
+  font-size: 1rem;
+  background-color: white;
+}
+
+/*  Button */
+.regbutton {
+  background: #a4243b;
+  color: white;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.regbutton:hover {
+  background: #4b111b;
+}
+
+.registerform{
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  /* margin-left: -14px;
+  margin-right: 27px; */
+}
+
+.registerform .form-group{
+  margin-bottom: 0.5rem;
+
+}
+
+.registerform-group{
+  background: rgb(167 32 32 / 5%);
+  box-shadow: 0 4px 26px 0 #dddddd1f;
+  /* backdrop-filter: blur( 2.5px ); */
+  /* -webkit-backdrop-filter: blur( 2.5px ); */
+  border-radius: 0px;
+  border: 2px solid #6caaa8;
+}
+
+.registerform-group-pass{
+  background: rgb(167 32 32 / 5%);
+  box-shadow: 0 4px 26px 0 #dddddd1f;
+  border-radius: 0px;
+  border: 6px solid #41494c59;
+  position: relative;
+  display: flex;
+  margin-bottom: 14px;
+}

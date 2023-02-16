@@ -1,0 +1,38 @@
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: red;
+    margin: 50px;
+  }
+  .prescription_form {
+    width: 100%;
+    height: 100vh;
+  
+    background: white;
+  }
+  .prescription {
+    width: 720px;
+    height: 960px;
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+  }
+  .prescription tr > td {
+    padding: 15px;
+  }
+  .header {
+    color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    flex: 1;
+  }
+  .logo img {
+    width: 120px;
+    height: 120px;
+    float: left;
+  }

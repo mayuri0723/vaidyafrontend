@@ -1,0 +1,290 @@
+.pa-why, .pa-counter, .pa-tesimonial, .pa-why-pure, .pa-team-home {
+    background: rgba(108, 170, 168, 0.1);
+}
+.pa-heading {
+    text-align: center;
+    margin-bottom: 46px;
+}
+div {
+    display: block;
+}
+.pa-heading img {
+    opacity: 0.4;
+}
+.pa-heading h1 {
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    font-size: 32px;
+}
+.pa-heading h5 {
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-size: 20px;
+    color: #6caaa8;
+}
+/* main tag */
+ul {
+    margin: 0;
+    padding: 0;
+}
+/* left elements */
+.pa-why-left ul li:first-child {
+    padding-right: 85px;
+}
+.pa-why-left ul li {
+    text-align: right;
+    padding-right: 150px;
+}
+.pa-why-ul ul li {
+    font-size: 20px;
+    margin-bottom: 60px;
+    font-weight: 500;
+    position: relative;
+    text-transform: capitalize;
+}
+li {
+    list-style: none;
+}
+.pa-why-left ul li:nth-child(2) {
+    padding-right: 140px;
+}
+.pa-why-left ul li {
+    text-align: right;
+    padding-right: 150px;
+}
+.pa-why-left ul li:nth-child(4) {
+    padding-right: 145px;
+}
+.pa-why-left ul li:last-child {
+    padding-right: 100px;
+}
+.pa-why-ul ul li:last-child {
+    margin-bottom: 0;
+}
+.pa-why-img {
+    width: 380px;
+    height: 380px;
+    line-height: 380px;
+    border: 1px dashed #6caaa8;
+    border-radius: 100%;
+    text-align: center;
+    background-image:  url("/images/Sukhayu logo english.png");
+    /* background-color: #b1ecea; */
+}
+.pa-why-img img {
+    margin-top: -165px;
+    width: 322px;
+}
+
+/* right li */
+.pa-why-right ul li:first-child {
+    padding-left: 95px;
+}
+.pa-why-right ul li {
+    text-align: left;
+    padding-left: 150px;
+}
+.pa-why-right ul li:nth-child(2) {
+    padding-left: 140px;
+}
+/* .pa-why-right ul li:nth-child(4) {
+    padding-left: 145px;
+} */
+.pa-why-ul ul li:last-child {
+    margin-bottom: 0;
+}
+/* dotted lines */
+.pa-why-ul ul li:after {
+    position: absolute;
+    content: '';
+    width: 145px;
+    border: 0.5px dashed #6caaa8;
+    top: 0;
+    bottom: 0;
+    height: 1px;
+    margin: auto 0;
+}
+.pa-why-left ul li:after {
+    right: 0;
+}
+.pa-why-left ul li:first-child:after {
+    transform: rotate(11deg) translate(70px, 0px);
+}
+
+.pa-why-left ul li:nth-child(2):after {
+    transform: rotate(8deg) translate(13px, 10px);
+}
+.pa-why-left ul li:nth-child(4):after {
+    width: 151px;
+    transform: rotate(350deg) translate(14px, -10px);
+
+}
+.pa-why-left ul li:nth-child(5):after {
+    width: 199px;
+    transform: rotate(341deg) translate(55px, -10px);
+}
+.pa-why-left ul li:last-child:after {
+    transform: rotate(334deg) translate(114px, -10px);
+    width: 242px;
+}
+.pa-why-right ul li:first-child:after {
+    width: 146px;
+    transform: rotate(348deg) translate(-56px, 10px);
+}
+.pa-why-right ul li:after {
+    left: 0;
+}
+.pa-why-right ul li:nth-child(2):after {
+    width: 136px;
+    /* transform: rotate(-8deg) translate(-15px, 10px); */
+    transform: rotate(354deg) translate(-1px, 17px);
+}
+.pa-why-right ul li:nth-child(3):after {
+    width: 139px;
+    transform: rotate(1deg) translate(6px, 1px);
+}
+
+.pa-why-right ul li:nth-child(4):after {
+    transform: rotate(8deg) translate(6px, -9px);
+}
+
+.pa-why-right ul li:nth-child(5):after {
+    width: 178px;
+    transform: rotate(23deg) translate(-42px, -21px);
+}
+
+.pa-why-right ul li:last-child:after {
+    width: 242px;
+    transform: rotate(31deg) translate(-105px, -10px);
+    /* transform: rotate(16deg) translate(-50px, -10px); */
+}
+@media screen and (max-width: 575px){
+    .pa-why-right ul li, .pa-why-left ul li {
+        text-align: center;
+        border-bottom: 1px solid #e5ecec;
+        padding-bottom: 20px!important;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 767px){
+.pa-why {
+    padding-bottom: 54px;
+}
+}
+@media screen and (max-width: 991px){
+    .pa-why {
+        padding-bottom: 74px;
+    }
+}
+
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+
+
+@media screen and (max-width: 767px){
+    .spacer-top {
+        padding-top: 60px;
+    }
+}
+.pa-why,  .pa-why-pure {
+    background: rgba(108, 170, 168, 0.1);
+}
+@media screen and (max-width: 991px){
+    .pa-why .pr-0, .pa-why .p-0 {
+        padding-right: 15px!important;
+    }
+}
+@media screen and (max-width: 991px){
+    .pa-why-ul ul li, .pa-why-left ul li:first-child, 
+    .pa-why-left ul li:nth-child(2), 
+    .pa-why-left ul li:nth-child(4), 
+    .pa-why-left ul li:last-child, 
+    .pa-why-right ul li:first-child,
+     .pa-why-right ul li:nth-child(2),
+     .pa-why-right ul li:nth-child(4), 
+     .pa-why-right ul li:last-child {
+        padding: 0;
+    }
+}
+/* ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+} */
+
+@media screen and (max-width: 991px){
+    .pa-why-ul ul li {
+        margin-bottom: 35px;
+    }
+    
+}
+@media screen and (max-width: 991px){
+    .pa-why-left ul li {
+        text-align: left;
+    }
+    
+}
+
+@media screen and (max-width: 1199px){
+    .pa-why-ul ul li {
+        margin-bottom: 53px;
+    }
+    
+}
+
+@media screen and (max-width: 991px){
+    .pa-why-img {
+        width: 210px;
+        height: 210px;
+        line-height: 210px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 767px){
+.pa-why-ul ul li:after {
+    position: absolute;
+    content: '';
+    width: 145px;
+    /* border: 0.5px dashed #6caaa8; */
+    top: 0;
+    bottom: 0;
+    height: 1px;
+    margin: auto 0;
+}
+}
+
+
+
+@media screen and (max-width: 1199px){
+    .pa-why-img {
+        width: 320px;
+        height: 320px;
+        line-height: 320px;
+        margin-top: 15px;
+    }
+    
+}
+
+
+
+
+.pa-why,  .pa-why-pure{
+    background: rgba(108, 170, 168, 0.1);
+}
+
+.whyImage h5{
+    margin: -223px -1px 6px 78px;
+    font-size: 41px;
+    color: #25a9b2;
+}
+
+.whyImage p{
+    margin: 14px -1px 6px 85px;
+    font-size: 18px;
+}

@@ -1,0 +1,149 @@
+/* h3{
+  margin: 0;
+} */
+a:hover, a:focus{
+  text-decoration: none;
+}
+.testimonial{
+  background: #107774 ;
+  padding: 28px 32px 30px 90px;
+  margin: 50px 20px 0px 120px;
+  border-radius: 0 100px 100px 0;
+  color: #fff;
+  position: relative;
+  border: 5px solid #6dbad0;
+}
+.testimonial .pic{
+  width: 210px;
+  height: 210px;
+  line-height: 200px;
+  border-radius: 50%;
+  border: 14px solid #6dbad0;
+  position: absolute;
+  top: -15px;
+  left: -120px;
+  overflow: hidden;
+}
+.testimonial .pic img{
+  width: 100%;
+  height: 100%;
+}
+.testimonial .testimonial-info{
+  display: inline-block;
+  width: 35%;
+  /* float: left; */
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* padding: 28px 25px; */
+  padding: 28px 3px;
+  margin: 0;
+  border-right: 1px solid #D0AB6D;
+}
+.testimonial .testimonial-info small{
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 5px;
+}
+.testimonial .description{
+  display: inline-block;
+  width: 65%;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+  padding: 40px 0 16px 28px;
+  /* padding: 28px 0 28px 28px; */
+  position: relative;
+}
+.testimonial .description:before{
+  content: "\f10d";
+  font-family: fontawesome;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 20px;
+  color: #D0AB6D;
+}
+.testimonial .description:after{
+  content: "\f10e";
+  font-family: fontawesome;
+  font-size: 20px;
+  color: #D0AB6D;
+  position: absolute;
+  bottom: -18px;
+  right: 42px;
+}
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls .owl-page span{
+  
+  width: 25px !important;
+  height: 7px !important;
+  background: #4D241C !important;
+  box-sizing: content-box !important;
+}
+.owl-theme .owl-controls .owl-page span{
+  border: 4px solid transparent;
+  background: #D0AB6D !important;
+}
+
+/* @media only screen and (min-width: 767px) {
+  .testimonial{
+      border-radius: 40px;
+      margin: 90px 15px 0;
+      padding: 100px 40px 30px 40px;
+  }
+  .testimonial .pic{
+      position: absolute;
+      top: -85px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+  }
+  .testimonial .testimonial-info{
+      width: 100%;
+      float: none;
+      border-right: none;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .testimonial .description{
+      width: 100%;
+  }
+} */
+
+@media only screen  and (max-width:990px){
+  .testimonial{
+      border-radius: 40px;
+      margin: 90px 15px 0;
+      padding: 100px 40px 30px 40px;
+  }
+  .testimonial .pic{
+      position: absolute;
+      top: -85px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+  }
+  .testimonial .testimonial-info{
+      width: 100%;
+      float: none;
+      border-right: none;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .testimonial .description{
+      width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .testimonial{ padding: 100px 30px 30px; }
+}
+
+.doctorCardDetail{
+  display: flex;
+}

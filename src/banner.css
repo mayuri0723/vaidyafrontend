@@ -1,0 +1,90 @@
+/* 
+.responsive-banner-wrap {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* border-radius: 0% 0% 47% 47% / 31% 36% 52% 56% ; 
+}
+.responsive-banner-wrap > *, .responsive-banner-wrap img, .responsive-banner-wrap h2 {
+    position: relative;
+    z-index: 9;
+}
+.responsive-banner-wrap h2 {
+    margin-bottom: 3%;
+    background: #399;
+    padding: 15px;
+    margin: 0 0 -3px 0;
+    font-weight: lighter;
+}
+.responsive-banner-wrap svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.responsive-banner-wrap img {
+    width: 5%;
+    margin-top: 3%;
+}
+.responsive-banner-wrap a {
+    text-decoration: none;
+    color: rgb(241, 240, 240);
+    text-shadow: 2px 2px #333;
+}
+.responsive-banner-wrap a:hover {
+    text-shadow: 4px 4px #333;
+}
+.banner-svg {
+    fill: #399;
+}
+
+
+.owlitem .img{
+width:30px;
+height:auto;
+} */
+
+
+
+.pa-banner {
+    padding: 200px 0px 185px;
+    background-image: url("/images/banner.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pa-banner-text {
+    animation: slideInFromRight 3s;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: slideInFromRight;
+    font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.pa-banner-text h4 {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    z-index: 1;
+    color: #fff;
+    letter-spacing: 1px;
+
+}
+.pa-banner-text h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+.pa-banner-text p {
+    margin-bottom: 30px;
+    font-size: 40px;
+}

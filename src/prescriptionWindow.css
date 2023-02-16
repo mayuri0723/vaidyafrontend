@@ -1,0 +1,96 @@
+.partitioned {
+    padding-left: 15px;
+    letter-spacing: 42px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 50px 1px;
+    background-repeat: repeat-x;
+    background-position-x: 35px;
+    width: 245px;
+    min-width: 241px;
+  }
+  
+  #divInner{
+    left: 0;
+    position: sticky;
+  }
+  
+  #divOuter{
+    width: 190px; 
+    overflow: hidden;
+  }
+
+  .symptomcard{
+    color: black;
+    background-color: #d2fffa;
+    border: 1px solid;
+  }
+
+
+.p-input {
+    width: 100%;
+    height: 36px;
+    padding: 1px 6px;
+    border: 1px solid #6caaa8;
+    outline: none;
+    border-radius: 6px;
+}
+
+
+.sym-input {
+  width: 50%;
+  height: 36px;
+  padding: 1px 6px;
+  border: 1px solid #6caaa8;
+  outline: none;
+  border-radius: 6px;
+}
+
+.d-input {
+  width: 19%;
+  height: 36px;
+  padding: 1px 6px;
+  border: 1px solid #6caaa8;
+  outline: none;
+  border-radius: 6px;
+}
+
+button, .p-input {
+    /* border: none; */
+    outline: none;
+    overflow: visible;
+}
+.react-datepicker-wrapper,.react-datepicker__input-container{
+  border: none;
+}
+.form-check-inline .form-check-input {
+  position: static;
+  margin-top: 0px;
+  margin-right: 0.3125rem;
+  margin-left: 0;
+}
+
+/* card body */
+/* display: flex;
+align-items: center;
+flex-direction: row;
+/* align-content: space-between; 
+padding: 0px 1px 0px 1px;
+margin: 2px 2px 2px 0 5px;
+justify-content: space-between; */
+.popup-box {
+
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 7vh;
+  /* margin-top: calc(97vh - 81vh - 18px); */
+  background: #fff;
+  border-radius: 4px;
+  padding: 29px;
+  border: 1px solid #999;
+  overflow: auto;
+
+}

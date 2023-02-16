@@ -1,0 +1,59 @@
+.spacer-top {
+    padding-top: 80px;
+}
+div {
+    display: block;
+}
+.pa-medicine-box {
+    text-align: center;
+    box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 7%);
+    border-radius: 10px;
+    padding: 30px;
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+}
+.pa-medi-icon {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    line-height: 100px;
+    border-radius: 100%;
+    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 5%);
+    display: inline-block;
+}
+.pa-medi-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: #6caaa8;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.pa-medi-icon {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    line-height: 100px;
+    border-radius: 100%;
+    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 5%);
+    display: inline-block;
+}
+.pa-medicine-box h2 {
+    font-size: 30px;
+    margin: 20px 0 10px;
+    text-transform: capitalize;
+    font-family: 'Tiro Devanagari Hindi', serif;
+}
+a {
+    color: #242424;
+    transition: 0.3s;
+}
+.pa-medicine-box p {
+    margin: 0px;
+    /* padding-top: 10px; */
+    font-size: 13px;
+    font-family: 'Tiro Devanagari Hindi', serif;
+}

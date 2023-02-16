@@ -1,0 +1,17 @@
+.sf_ayurved{
+    position: relative;
+    line-height: 30px;
+}
+
+.ayuh{
+    color: #065c2f; 
+    position: relative;
+    line-height: 60px;
+}
+
+p{
+    font-size: 16px;
+    color: #065C2F;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
