@@ -29,7 +29,7 @@ export const createTherapy = (patientName,
             }
             // Make request to server and get the response data
             const { data } = await axios.post(
-                `https://vaidyabackend.vercel.app/api/therapy/`,
+                `http://192.168.1.103/api/therapy/`,
                 {
                     patientName,
                     therapycontact,
