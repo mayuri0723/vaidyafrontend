@@ -27,7 +27,7 @@ export const createInquiry = (
 
         // Make request to server and get the response data
         const { data } = await axios.post(
-            'http://192.168.1.4/api/inquiry/',
+            'http://192.168.1.20/api/inquiry/',
             { inquiryName,
                 inquirycontact,
                 inquiryemail,
