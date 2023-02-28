@@ -44,16 +44,14 @@ export const login = (email, password) => async (dispatch) => {
         // Make request to server and get the response data
         const { data } = await axios.post(
             'http://http://192.168.1.20:8000/api/users/login',
-            { email, password },
-            config
-        )
+            { email, password }, config)
 
         // Dispatch user login success after making the request
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data,
         })
-
+        console.log("data", data);
         // Set user data to local storage
         localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (error) {
@@ -65,6 +63,7 @@ export const login = (email, password) => async (dispatch) => {
                     : error.message,
         })
     }
+
 }
 
 export const logout = () => (dispatch) => {
@@ -255,7 +254,7 @@ export const getUserDesc = () => async (dispatch) => {
 
 }
 
-export const updateUserStaff = (id,user) => async (dispatch, getState) => {
+export const updateUserStaff = (id, user) => async (dispatch, getState) => {
     try {
         dispatch({
             type: USER_STATUS_REQUEST,

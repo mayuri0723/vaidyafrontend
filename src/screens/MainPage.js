@@ -11,6 +11,7 @@ const MainPage = ({ location, history }) => {
   const dispatch = useDispatch()
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
+  
   // Get user login info from Redux state
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
@@ -23,14 +24,14 @@ const MainPage = ({ location, history }) => {
     });
     localStorage.setItem('isLogin', true)
 
-    history.push('/home');
+    history.push('/');
 
   }
   return (
     <div>
       
         <div className="Auth-form-container">
-        <div class="Auth-form-wrapper">
+        <div className="Auth-form-wrapper">
           <Form className="Auth-form" onSubmit={submitHandler}>
             <div className="Auth-form-content">
               {/* <h3 className="Auth-form-title">Sign In</h3> */}

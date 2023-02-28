@@ -21,13 +21,6 @@ const Login = ({ location, history }) => {
     const [isFetching, setIsFetching] = useState(true);
     const [passwordShown, setPasswordShown] = useState(false);
 
-    // useEffect(() => {
-    //     setTimeout(function () {
-    //         // console.log("Delayed for 5 second.");
-    //         setIsFetching(false);
-    //     }, 2000);
-    //     history.push('/login')
-    // }, []);
     const eye = <FontAwesomeIcon icon={faEye} />;
     // State to hold email and password
     const [email, setEmail] = useState('')
@@ -39,14 +32,6 @@ const Login = ({ location, history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { loading, error, userInfo } = userLogin
 
-    // const redirect = location.search ? location.search.split('=')[1] : '/'
-
-    // useEffect(() => {
-    //     // If there is user info then redirect
-    //     if (userInfo) {
-    //         history.push(redirect)
-    //     }
-    // }, [history, userInfo, redirect])
 
     // Handler that logs in the user
     const submitHandler = (e) => {

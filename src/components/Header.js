@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../actions/userActions'
 import { useHistory } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({location, history}) => {
     const dispatch = useDispatch()
     // const history = useHistory()
 
@@ -27,6 +27,7 @@ const Header = () => {
         dispatch(logout())
         localStorage.removeItem('isLogin')
         window.location.reload();
+        history.push('/');
     }
 
     return (
@@ -56,7 +57,7 @@ const Header = () => {
 
                         <Navbar.Collapse id='basic-navbar-nav'>
                             <Nav className='me-auto'>
-                                <LinkContainer to={`/home`}>
+                                <LinkContainer to={`/`}>
                                     <Navbar.Brand>Home
                                         &nbsp;  |&nbsp;
                                     </Navbar.Brand>
@@ -152,7 +153,7 @@ const Header = () => {
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                 ) : (
-                                    <LinkContainer to='/'>
+                                    <LinkContainer to='/mainpage'>
                                         <Nav.Link>
                                             <i className='fa fa-user mr-2'></i>
                                             Sign In

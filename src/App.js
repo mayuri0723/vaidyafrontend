@@ -68,8 +68,8 @@ const App = () => {
             <Header />
 
             <main className='py-3'>
-            <Route path='/' component={MainPage} exact />
-                <Route path='/home' component={HomeScreen}  />
+            <Route path='/'component={HomeScreen} exact />
+                {/* <Route path='/'   exact  /> */}
                 <Route path='/demoReg' component={DemoRegistration} />
                 <Route path='/register' component={RegisterScreen} />
                 <Route path='/therapy' component={Therapy} />
@@ -78,7 +78,7 @@ const App = () => {
                 <Route path='/about' component={About} />
                 <Route path='/contact-us' component={ContactUs} />
                 <Route path='/dashboard' component={Dashboard} />
-                {/* <Route path='/mainpage'  component={MainPage} /> */}
+                <Route path='/mainpage'  component={MainPage} />
                 <Container>
                     <Route path='/tab' component={TabComponent} />
                     <Route path='/mastertab' component={MasterTab} />
