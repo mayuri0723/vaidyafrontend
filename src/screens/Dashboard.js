@@ -36,7 +36,7 @@ const Dashboard = () => {
   const { loadingUsers, errorUsers, users } = Patient;
 
 
-  const adminFilter = users?.filter(e => e.isAdmin === false && dayjs(e.createdAt).isSame(dayjs(), 'day'));
+  const adminFilter = users?.filter(e => e?.isAdmin === false && dayjs(e?.createdAt).isSame(dayjs(), 'day'));
   // console.log("Dashoabrd filter admin", adminFilter)
 
   // const showRegisterPatients = adminFilter?.filter((e) => e.createdAt === dayjs())
@@ -89,15 +89,15 @@ const Dashboard = () => {
                 <Card.Text>
                   {todayAppointments?.map(appointment => (
                     <div key={appointment.id}>
-                      <p>Patient Name: {appointment.patientName}</p>
-                      <p>Phone Number: {appointment.patientContact}</p>
+                      <h6>Patient Name: {appointment?.patientName}</h6>
+                      <h6>Phone Number: {appointment?.patientContact}</h6>
                     </div>
                   ))}
                   <hr />
                   {/* <h3>Today's  Patients</h3> */}
                   {adminFilter?.map(user => (
                     <div key={user.id}>
-                      <p>Patient Name: {user.name}</p>
+                      <h6>Patient Name: {user?.name}</h6>
                  
                     </div>
                   ))}

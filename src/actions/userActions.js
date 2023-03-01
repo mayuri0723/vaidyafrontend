@@ -43,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
 
         // Make request to server and get the response data
         const { data } = await axios.post(
-            'http://http://192.168.1.20:8000/api/users/login',
+            'http://192.168.1.20:8000/api/users/login',
             { email, password }, config)
 
         // Dispatch user login success after making the request
@@ -99,7 +99,7 @@ export const register = (name, email, phone, password, address, age, gender, wei
 
         // Make request to server and get the response data
         const { data } = await axios.post(
-            'http://192.168.1.20/api/users',
+            'http://192.168.1.20:8000/api/users',
             { name, email, phone, password, address, age, gender, weight, reference, date, isAdmin, profilePictureURL },
             config
         )
@@ -149,7 +149,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         }
 
         // Make request to server and get the response data
-        const { data } = await axios.get(`http://192.168.1.20/api/users/${id}`, config)
+        const { data } = await axios.get(`http://192.168.1.20:8000/api/users/${id}`, config)
 
         // Dispatch user register success after making the request
         dispatch({
@@ -187,13 +187,14 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         }
 
         // Make request to server and get the response data
-        const { data } = await axios.put(`http://192.168.1.20/api/users/profile`, user, config)
+        const { data } = await axios.put(`http://192.168.1.20:8000/api/users/profile`, user, config)
 
         // Dispatch user register success after making the request
         dispatch({
             type: USER_UPDATE_PROFILE_SUCCESS,
             payload: data,
         })
+        // console.log("get users",data)
     } catch (error) {
         dispatch({
             type: USER_UPDATE_PROFILE_FAIL,
@@ -206,12 +207,13 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 }
 
 //userinfo action api
+
 export const getUserInfoDetails = () => async (dispatch) => {
     try {
         dispatch({
             type: USER_INFO_DETAILS_REQUEST,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/users/userInfo')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/users/userInfo')
 
         dispatch({
             type: USER_INFO_DETAILS_SUCCESS,
@@ -234,7 +236,7 @@ export const getUserDesc = () => async (dispatch) => {
         dispatch({
             type: USER_LATEST_REQUEST,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/users/latest-patient')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/users/latest-patient')
 
         dispatch({
             type: USER_LATEST_SUCCESS,
@@ -274,7 +276,7 @@ export const updateUserStaff = (id, user) => async (dispatch, getState) => {
         }
 
         // Make request to server and get the response data
-        const { data } = await axios.put(`http://192.168.1.20/api/users/${id}/updateStatus`, user, config)
+        const { data } = await axios.put(`http://192.168.1.20:8000/api/users/${id}/updateStatus`, user, config)
 
         // Dispatch user register success after making the request
         dispatch({

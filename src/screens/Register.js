@@ -7,7 +7,7 @@ import '../register.css'
 import { register } from '../actions/userActions'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Button, Image, Form,InputGroup} from 'react-bootstrap';
+import { Button, Image, Form, InputGroup } from 'react-bootstrap';
 
 
 
@@ -95,229 +95,230 @@ const Register = ({ location, history }) => {
 
             <Form onSubmit={submitHandler} className='registerform' validated={validated}>
                 <table>
-                    <tr>
-                        <td>
-                            <label> Name</label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId='name' className='registerform-group'>
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Full Name'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                ></Form.Control>
-                            </Form.Group>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Date</label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId='Date' className='registerform-group'>
-                                <div >
-                                    <DatePicker
-                                        selected={date}
-                                        onChange={(date) => setDate(date)}
-                                        peekNextMonth
-                                        showMonthDropdown
-                                        dropdownMode="select"
-                                        placeholderText="Date"
-                                        dateFormat="MMMM d, yyyy h:mm aa"
-                                    />
-                                </div>
-                            </Form.Group>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label>Age</label>
-                        </td>
-                        <td>
-                            <Form.Group controlId='Age' className='registerform-group'>
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Age'
-                                    value={age}
-                                    onChange={(e) => setAge(e.target.value)}
-
-                                ></Form.Control>
-                            </Form.Group>
-                        </td>
-
-
-                        <td>
-                            <label>
-                                Gender
-                            </label>
-                        </td>
-                        <td>
-                            <Form.Group controlId='Gender' className='registerform-group'>
-                                <Form.Control as="select"
-                                    value={gender}
-                                    type='text'
-                                    placeholder='Gender'
-                                    onChange={(e) => setGender(e.target.value)}
-                                >
-                                    <option value="">Sex</option>
-                                    <option value="FEMALE">FEMALE</option>
-                                    <option value="MALE">MALE</option>
-                                </Form.Control>
-                            </Form.Group>
-                        </td>
-
-                        <td>
-                            <label>Weight</label>
-                        </td>
-                        <td>
-                            <Form.Group controlId='Weight' className='registerform-group'>
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Weight in Kg'
-                                    value={weight}
-                                    onChange={(e) => setWeight(e.target.value)}
-
-                                ></Form.Control>
-                            </Form.Group>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Address
-                            </label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId="address" className='registerform-group'>
-
-                                <Form.Control as="textarea" rows={2}
-                                    type='text'
-                                    placeholder='Address'
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                />
-                            </Form.Group>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Email Id</label>
-                        </td>
-                        <td colSpan={5}>
-                            <InputGroup hasValidation>
-                                <Form.Group controlId='email' className='registerform-group'>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label> Name</label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId='name' className='registerform-group'>
                                     <Form.Control
-                                        type='email'
-                                        placeholder='email@example.com'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
+                                        type='text'
+                                        placeholder='Full Name'
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                     ></Form.Control>
                                 </Form.Group>
-                                <Form.Control.Feedback type="invalid">
-                                    Please enter valid email-id.
-                                </Form.Control.Feedback>
-                            </InputGroup>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Date</label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId='Date' className='registerform-group'>
+                                    <div >
+                                        <DatePicker
+                                            selected={date}
+                                            onChange={(date) => setDate(date)}
+                                            peekNextMonth
+                                            showMonthDropdown
+                                            dropdownMode="select"
+                                            placeholderText="Date"
+                                            dateFormat="MMMM d, yyyy h:mm aa"
+                                        />
+                                    </div>
+                                </Form.Group>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>
-                            <label>
-                                Contact No.
-                            </label>
-                        </td>
-                        <td colSpan={5}>
-                        <InputGroup hasValidation>
-                            <Form.Group controlId='phone' className='registerform-group'>
-                                <Form.Control
-                                    type="phone"
-                                    maxLength="10"
-                                    placeholder='10 digit mobile number'
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                ></Form.Control>
-                            </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                    Please enter valid phone no.
-                                </Form.Control.Feedback>
-                            </InputGroup>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <label>Age</label>
+                            </td>
+                            <td>
+                                <Form.Group controlId='Age' className='registerform-group'>
+                                    <Form.Control
+                                        type='text'
+                                        placeholder='Age'
+                                        value={age}
+                                        onChange={(e) => setAge(e.target.value)}
 
-                    <tr>
-                        <td>
-                            <label>
-                                Reference of Vaidya Manager?
-                            </label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId='reference' className='registerform-group'>
-                                <Form.Control
-                                    as="select"
-                                    type='text'
-                                    placeholder='Reference for vaidya manager?'
-                                    value={reference}
-                                    onChange={(e) => setReference(e.target.value)}
+                                    ></Form.Control>
+                                </Form.Group>
+                            </td>
 
-                                >
-                                    <option value="">Select</option>
-                                    <option value="Newspaper">Newspaper</option>
-                                    <option value="Internet">Internet</option>
-                                    <option value="Call Center">Call Center</option>
-                                    <option value="Friend/Relative">Friend/Relative</option>
-                                    <option value="Other">Other</option>
-                                </Form.Control>
-                            </Form.Group>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Password</label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId='password' className='registerform-group'>
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Enter password'
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                ></Form.Control>
-                            </Form.Group>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>
-                            <label>Confirm Password</label>
-                        </td>
-                        <td colSpan={5}>
-                            <Form.Group controlId='confirmPassword' className='registerform-group'>
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Confirm password'
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                ></Form.Control>
-                            </Form.Group>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>  <Button type='submit' variant='primary'>
-                            Register
-                        </Button>
-                            <ToastContainer />
-                        </td>
-                        <td>
-                            <Button t variant='primary'>
-                                Reset
-                            </Button></td>
-                    </tr>
+                            <td>
+                                <label>
+                                    Gender
+                                </label>
+                            </td>
+                            <td>
+                                <Form.Group controlId='Gender' className='registerform-group'>
+                                    <Form.Control as="select"
+                                        value={gender}
+                                        type='text'
+                                        placeholder='Gender'
+                                        onChange={(e) => setGender(e.target.value)}
+                                    >
+                                        <option value="">Sex</option>
+                                        <option value="FEMALE">FEMALE</option>
+                                        <option value="MALE">MALE</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </td>
 
-                    {/* <div className="userimage-upload">
+                            <td>
+                                <label>Weight</label>
+                            </td>
+                            <td>
+                                <Form.Group controlId='Weight' className='registerform-group'>
+                                    <Form.Control
+                                        type='text'
+                                        placeholder='Weight in Kg'
+                                        value={weight}
+                                        onChange={(e) => setWeight(e.target.value)}
+
+                                    ></Form.Control>
+                                </Form.Group>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Address
+                                </label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId="address" className='registerform-group'>
+
+                                    <Form.Control as="textarea" rows={2}
+                                        type='text'
+                                        placeholder='Address'
+                                        value={address}
+                                        onChange={(e) => setAddress(e.target.value)}
+                                    />
+                                </Form.Group>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email Id</label>
+                            </td>
+                            <td colSpan={5}>
+                                <InputGroup hasValidation>
+                                    <Form.Group controlId='email' className='registerform-group'>
+                                        <Form.Control
+                                            type='email'
+                                            placeholder='email@example.com'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                        ></Form.Control>
+                                    </Form.Group>
+                                    <Form.Control.Feedback type="invalid">
+                                        Please enter valid email-id.
+                                    </Form.Control.Feedback>
+                                </InputGroup>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>
+                                    Contact No.
+                                </label>
+                            </td>
+                            <td colSpan={5}>
+                                <InputGroup hasValidation>
+                                    <Form.Group controlId='phone' className='registerform-group'>
+                                        <Form.Control
+                                            type="phone"
+                                            maxLength="10"
+                                            placeholder='10 digit mobile number'
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
+                                        ></Form.Control>
+                                    </Form.Group>
+                                    <Form.Control.Feedback type="invalid">
+                                        Please enter valid phone no.
+                                    </Form.Control.Feedback>
+                                </InputGroup>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>
+                                    Reference of Vaidya Manager?
+                                </label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId='reference' className='registerform-group'>
+                                    <Form.Control
+                                        as="select"
+                                        type='text'
+                                        placeholder='Reference for vaidya manager?'
+                                        value={reference}
+                                        onChange={(e) => setReference(e.target.value)}
+
+                                    >
+                                        <option value="">Select</option>
+                                        <option value="Newspaper">Newspaper</option>
+                                        <option value="Internet">Internet</option>
+                                        <option value="Call Center">Call Center</option>
+                                        <option value="Friend/Relative">Friend/Relative</option>
+                                        <option value="Other">Other</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId='password' className='registerform-group'>
+                                    <Form.Control
+                                        type='password'
+                                        placeholder='Enter password'
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    ></Form.Control>
+                                </Form.Group>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>Confirm Password</label>
+                            </td>
+                            <td colSpan={5}>
+                                <Form.Group controlId='confirmPassword' className='registerform-group'>
+                                    <Form.Control
+                                        type='password'
+                                        placeholder='Confirm password'
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                    ></Form.Control>
+                                </Form.Group>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>  <Button type='submit' variant='primary'>
+                                Register
+                            </Button>
+                                <ToastContainer />
+                            </td>
+                            <td>
+                                <Button t variant='primary'>
+                                    Reset
+                                </Button></td>
+                        </tr>
+
+                        {/* <div className="userimage-upload">
                             <label for="file-input">
                                 <img src={"/images/user(1).png"} alt="image" />
                             </label>
@@ -328,7 +329,7 @@ const Register = ({ location, history }) => {
                     */}
 
 
-
+                    </tbody>
                 </table>
             </Form >
             {/* <Row className='py-3'>

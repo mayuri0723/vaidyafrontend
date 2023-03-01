@@ -9,11 +9,21 @@
 .pa-about-img {
     position: relative;
     width: fit-content;
+    height: 600px;
 }
 
 .pa-about-img img {
     border-radius: 10px;
+    /* margin-top: 40px; */
 }
+
+@media only screen and (min-width: 992px) {
+    .pa-team img{
+        height:"550px",
+    }
+}
+
+
 
 .pa-about-content .pa-heading,
 .pa-services-content .pa-heading,

@@ -94,10 +94,10 @@ const PrescriptionWindow = () => {
   const { loadingMedicine, errorMedicine, medicinesList } = allMedicines;
 
 
-  // User(Patient)
+  // User(Patient)List
   const Patient = useSelector((state) => state.userInfoDetails)
   const { loadingUsers, errorUsers, users } = Patient;
- 
+ console.log("Patient List",users)
 
   useEffect(() => {
     dispatch(getUserInfoDetails());
@@ -140,16 +140,16 @@ const PrescriptionWindow = () => {
 
   const removeSymptomArray = item => {
     // Remove an item from the array using `filter`
-    setSymptomList(prevItems => prevItems.filter(i => i !== item));
+    setSymptomList(prevItems => prevItems?.filter(i => i !== item));
   };
 
   //use state for dynamic input fields for medicines
   const [inputFields, setInputFields] = useState([]);
   const addFields = (event) => {
     let medicineName = event.target.textContent.trim();
-    let isMedicineAdded = inputFields.find((_) => { return _.med.medicineName == medicineName })?.med._id !== undefined
+    let isMedicineAdded = inputFields.find((_) => { return _.med.medicineName == medicineName })?.med?._id !== undefined
     if (!isMedicineAdded) {
-      let med = allMedicines.medicinesList?.find((med) => { return med.medicineName === medicineName })
+      let med = allMedicines?.medicinesList?.find((med) => { return med.medicineName === medicineName })
       let newfield = { Dose: '', med: med }
       setInputFields([...inputFields, newfield])
       return
@@ -205,7 +205,7 @@ const PrescriptionWindow = () => {
 
   //checkboxes
   const [allowanceState, setAllowanceState] = React.useState("");
-  const dietCategories = [...new Set(DiechartList.map((item) => item.category))];
+  const dietCategories = [...new Set(DiechartList?.map((item) => item.category))];
 
   function getIdFromUnicode(unicode) {
     switch (unicode) {
@@ -438,7 +438,7 @@ const PrescriptionWindow = () => {
   const setUser = (e) => {
     // console.log(e)
     const selectedUserPhone = e.target.innerText.split("-")?.[1].trim()
-    const user = users.find((user) => user.phone.toString() === selectedUserPhone)
+    const user = users?.find((user) => user?.phone.toString() === selectedUserPhone)
 
     setPatient(user);
     // console.log(selectedUserId)
@@ -905,7 +905,7 @@ const PrescriptionWindow = () => {
                                         return <div className='categoryClass' style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
                                           {category}
                                           {
-                                            DiechartList.filter((elem) => { return elem.category == category }).map((diet, index) => (
+                                            DiechartList?.filter((elem) => { return elem.category == category }).map((diet, index) => (
                                               <div key={index}>
                                                 {
                                                   <span
@@ -1021,7 +1021,7 @@ const PrescriptionWindow = () => {
                     dietCategories.map((category) => {
                       return <li>
                         {
-                          dietArray.filter((_) => { return _.diet.category == category && _.allowance == '1' })
+                          dietArray?.filter((_) => { return _.diet.category == category && _.allowance == '1' })
                             .map((element) => element.diet.name).join(", ")
                         }
                       </li>
@@ -1036,7 +1036,7 @@ const PrescriptionWindow = () => {
                     dietCategories.map((category) => {
                       return <li>
                         {
-                          dietArray.filter((_) => { return _.diet.category == category && _.allowance == '2' })
+                          dietArray?.filter((_) => { return _.diet.category == category && _.allowance == '2' })
                             .map((element) => element.diet.name).join(", ")
 
                         }
@@ -1052,7 +1052,7 @@ const PrescriptionWindow = () => {
                     dietCategories.map((category) => {
                       return <li>
                         {
-                          dietArray.filter((_) => { return _.diet.category == category && _.allowance == '3' })
+                          dietArray?.filter((_) => { return _.diet.category == category && _.allowance == '3' })
                             .map((element) => element.diet.name).join(", ")
                         }
                       </li>

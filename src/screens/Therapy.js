@@ -58,6 +58,7 @@ const Therapy = ({ location, history }) => {
                 <h1 style={{ marginLeft: "44px" }}>Therapy Form</h1>
                 <Form onSubmit={submitHandler} className='registerform'>
                     <table>
+                        <tbody>
                         <tr>
                             <td>
                                 <label> Name</label>
@@ -208,6 +209,7 @@ const Therapy = ({ location, history }) => {
                                     Reset
                                 </Button></td>
                         </tr>
+                        </tbody>
                     </table>
                 </Form >
             </div>

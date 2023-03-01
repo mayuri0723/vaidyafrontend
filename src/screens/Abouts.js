@@ -24,7 +24,7 @@ const Abouts = () => {
                                     {/* <h1>We are here with 25 years of experience</h1> */}
                                     <h5>about us</h5>
                                 </div>
-                                <p>Welcome to Sukhayu Ayurvedic Chikitsalaya, Agnikarma Viddhakarma Research Center. We specialize in providing a holistic approach to healthcare using traditional Ayurvedic practices. We at Sukhayu offer a range of services, including agnikarma viddhakarma, Panchkarma, and a complete Ayurvedic practice.
+                                <p align="justify">Welcome to Sukhayu Ayurvedic Chikitsalaya, Agnikarma Viddhakarma Research Center. We specialize in providing a holistic approach to healthcare using traditional Ayurvedic practices. We at Sukhayu offer a range of services, including agnikarma viddhakarma, Panchkarma, and a complete Ayurvedic practice.
 
                                     Agnikarma viddhakarma is a specialized Ayurvedic treatment that involves using heat to promote healing and relieve pain with different shalaka (stick with specific measurements) made up of metals like Suvarna,Tamra, Rajat, Loh, Panchdhatu, etc. In "Viddha-karma" we use insulin needle on a specific point for management of different diseases like musculoskeletal conditions such as arthritis and back pain, knee joint pain, cervical spondylitis, lumbar spondylitis, sciatica, AVN, allergic rhinitis, infertility, headache, insomnia any many more.
 

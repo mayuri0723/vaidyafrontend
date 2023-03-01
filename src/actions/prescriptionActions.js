@@ -67,7 +67,7 @@ export const addPrescriptionUser = (prescriptionData) => async (dispatch, getSta
         // }
 
         // Make request to server and get the response data
-        const { data } = await axios.post(`http://192.168.1.20/api/prescription/add_prescription`, prescriptionData)
+        const { data } = await axios.post(`http://192.168.1.20:8000/api/prescription/add_prescription`, prescriptionData)
 
         // Dispatch  success after making the request
         dispatch({
@@ -109,7 +109,7 @@ export const addDietChart = (diet) => async (dispatch, getState) => {
         // }
 
         // Make request to server and get the response data
-        const { data } = await axios.post(`http://192.168.1.20/api/prescription/add_dietchart`, diet)
+        const { data } = await axios.post(`http://192.168.1.20:8000/api/prescription/add_dietchart`, diet)
 
         // Dispatch  success after making the request
         dispatch({
@@ -137,7 +137,7 @@ export const getPrescription = () => async (dispatch) => {
         dispatch({
             type: GET_PRESCRIPTION_SUCCESS,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/prescription/get_prescription')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/prescription/get_prescription')
 
         dispatch({
             type: GET_PRESCRIPTION_SUCCESS,
@@ -161,7 +161,7 @@ export const getDietChartList = () => async (dispatch) => {
         dispatch({
             type: GET_DIETCHART_SUCCESS,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/prescription/get_dietchart')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/prescription/get_dietchart')
 
         dispatch({
             type: GET_DIETCHART_SUCCESS,
@@ -185,7 +185,7 @@ export const getPrescriptionDetail = () => async (dispatch) => {
         dispatch({
             type: DATA_PRESCRIPTION_SUCCESS,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/prescription/getallPrescription')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/prescription/getallPrescription')
 
         dispatch({
             type: DATA_PRESCRIPTION_SUCCESS,
@@ -210,7 +210,7 @@ export const getPatientDetail = () => async (dispatch) => {
         dispatch({
             type: PATIENT_PRESCRIPTION_SUCCESS,
         })
-        const { data } = await axios.get('http://192.168.1.20/api/prescription/getpatientPrescription')
+        const { data } = await axios.get('http://192.168.1.20:8000/api/prescription/getpatientPrescription')
 
         dispatch({
             type: PATIENT_PRESCRIPTION_SUCCESS,

@@ -15,6 +15,12 @@ margin-bottom: 15px;
 background: #6CAAA8;
 padding: 30px 0px;
 }
+.contact-page-sec {
+    /* margin-left: 57px; */
+    padding: 60px;
+    min-height: 100vh;
+    margin-top: 12px;
+}
 .contact-page-sec .contact-page-form h2 {
 color: #6CAAA8;
 text-transform: capitalize;
