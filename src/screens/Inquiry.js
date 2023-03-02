@@ -56,7 +56,7 @@ const Inquiry = () => {
                                 <label> Name</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='name' className='registerform-group'>
+                                <Form.Group controlId='name' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Full Name'
@@ -73,7 +73,7 @@ const Inquiry = () => {
                                 </label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='contact' className='registerform-group'>
+                                <Form.Group controlId='contact' >
                                     <Form.Control
                                         type='text'
                                         maxLength="10"
@@ -89,7 +89,7 @@ const Inquiry = () => {
                                 <label>Email Id</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='email' className='registerform-group'>
+                                <Form.Group controlId='email' >
                                     <Form.Control
                                         type='email'
                                         placeholder='email@example.com'
@@ -105,7 +105,7 @@ const Inquiry = () => {
                                 </label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId="Inquiry" className='registerform-group'>
+                                <Form.Group controlId="Inquiry" >
 
                                     <Form.Control as="textarea" rows={2}
                                         type='text'
@@ -123,7 +123,7 @@ const Inquiry = () => {
                                 </label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='reference' className='registerform-group'>
+                                <Form.Group controlId='reference'>
                                     <Form.Control
                                         as="select"
                                         type='text'

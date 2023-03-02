@@ -64,7 +64,7 @@ const Therapy = ({ location, history }) => {
                                 <label> Name</label>
                             </td>
                             <td>
-                                <Form.Group controlId='name' className='registerform-group'>
+                                <Form.Group controlId='name' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Full Name'
@@ -81,7 +81,7 @@ const Therapy = ({ location, history }) => {
                                 </label>
                             </td>
                             <td >
-                                <Form.Group controlId='contact' className='registerform-group'>
+                                <Form.Group controlId='contact'>
                                     <Form.Control
                                         type='text'
                                         maxLength="10"
@@ -97,7 +97,7 @@ const Therapy = ({ location, history }) => {
                                 <label>Email Id</label>
                             </td>
                             <td >
-                                <Form.Group controlId='email' className='registerform-group'>
+                                <Form.Group controlId='email' >
                                     <Form.Control
                                         type='email'
                                         placeholder='email@example.com'
@@ -112,7 +112,7 @@ const Therapy = ({ location, history }) => {
                                 <label> Therapy Name</label>
                             </td>
                             <td >
-                                <Form.Group controlId='Therapy Name' className='registerform-group'>
+                                <Form.Group controlId='Therapy Name' >
                                     <Form.Control
                                         type='text'
                                         placeholder=' Therapy Name'
@@ -128,7 +128,7 @@ const Therapy = ({ location, history }) => {
                                 <label> Therapy Fees</label>
                             </td>
                             <td >
-                                <Form.Group controlId='Therapy Fees' className='registerform-group'>
+                                <Form.Group controlId='Therapy Fees' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Therapy Fees'
@@ -145,7 +145,7 @@ const Therapy = ({ location, history }) => {
                                 </label>
                             </td>
                             <td >
-                                <Form.Group controlId="Patient Review" className='registerform-group'>
+                                <Form.Group controlId="Patient Review" >
 
                                     <Form.Control as="textarea" rows={2}
                                         type='text'
@@ -161,7 +161,7 @@ const Therapy = ({ location, history }) => {
                                 <label> Therapist Name</label>
                             </td>
                             <td >
-                                <Form.Group controlId='Therapist' className='registerform-group'>
+                                <Form.Group controlId='Therapist'>
                                     <Form.Control
                                         type='text'
                                         placeholder='Therapist Name'
@@ -179,7 +179,7 @@ const Therapy = ({ location, history }) => {
                                 </label>
                             </td>
                             <td>
-                                <Form.Group controlId='reference' className='registerform-group'>
+                                <Form.Group controlId='reference' >
                                     <Form.Control
                                         as="select"
                                         type='text'

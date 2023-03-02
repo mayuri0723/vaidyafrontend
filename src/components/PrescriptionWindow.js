@@ -97,7 +97,7 @@ const PrescriptionWindow = () => {
   // User(Patient)List
   const Patient = useSelector((state) => state.userInfoDetails)
   const { loadingUsers, errorUsers, users } = Patient;
- console.log("Patient List",users)
+//  console.log("Patient List",users)
 
   useEffect(() => {
     dispatch(getUserInfoDetails());
@@ -476,7 +476,7 @@ const PrescriptionWindow = () => {
             }}
             getOptionLabel={(option) => `${option?.name} - ${option?.phone}`}
             renderInput={(params) => (
-              <TextField {...params} label="Patient"
+              <TextField {...params} label=" Select Patient"
                 margin="normal" />
             )}
             renderOption={(props, option, { inputValue }) => {
@@ -541,7 +541,7 @@ const PrescriptionWindow = () => {
                 }}
                 getOptionLabel={(option) => option?.medicineName}
                 renderInput={(params) => (
-                  <TextField {...params} label="Medicines"
+                  <TextField {...params} label="Add Medicines"
                     margin="normal" />
                 )}
                 renderOption={(props, option, { inputValue }) => {
