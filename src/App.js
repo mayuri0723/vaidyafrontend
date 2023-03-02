@@ -59,6 +59,7 @@ import Setting from './screens/Setting'
 import VisitingCards from './screens/VisitingCards'
 import MainPage from './screens/MainPage'
 import PrescriptionData from './screens/PrescriptionData'
+import Signup from './screens/Signup'
 
 
 const App = () => {
@@ -79,6 +80,7 @@ const App = () => {
                 <Route path='/contact-us' component={ContactUs} />
                 <Route path='/dashboard' component={Dashboard} />
                 <Route path='/mainpage'  component={MainPage} />
+                <Route path='/signup'  component={Signup} />
                 <Container>
                     <Route path='/tab' component={TabComponent} />
                     <Route path='/mastertab' component={MasterTab} />

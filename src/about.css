@@ -18,11 +18,20 @@
 }
 
 @media only screen and (min-width: 992px) {
-    .pa-team img{
-        height:"550px",
+    .pa-team img {
+        height: "550px",
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .sukhayu-about {
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px; */
+    }
+}
 
 
 .pa-about-content .pa-heading,
@@ -302,9 +311,9 @@ a:-webkit-any-link {
 } */
 
 @media screen and (max-width: 600px) {
-    .imgSmall{
+    .imgSmall {
         width: 494px;
         height: 161px;
         margin-bottom: 10px;
     }
-  }
+}

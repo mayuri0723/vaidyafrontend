@@ -10,9 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Button, Image, Form, InputGroup } from 'react-bootstrap';
 
 
-
-
-
 const Register = ({ location, history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')

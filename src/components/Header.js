@@ -28,6 +28,7 @@ const Header = ({location, history}) => {
         localStorage.removeItem('isLogin')
         window.location.reload();
         history.push('/');
+       
     }
 
     return (
