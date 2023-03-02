@@ -98,7 +98,7 @@ const Register = ({ location, history }) => {
                                 <label> Name</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='name' className='registerform-group'>
+                                <Form.Group controlId='name' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Full Name'
@@ -113,7 +113,7 @@ const Register = ({ location, history }) => {
                                 <label>Date</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='Date' className='registerform-group'>
+                                <Form.Group controlId='Date'>
                                     <div >
                                         <DatePicker
                                             selected={date}
@@ -134,7 +134,7 @@ const Register = ({ location, history }) => {
                                 <label>Age</label>
                             </td>
                             <td>
-                                <Form.Group controlId='Age' className='registerform-group'>
+                                <Form.Group controlId='Age' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Age'
@@ -152,7 +152,7 @@ const Register = ({ location, history }) => {
                                 </label>
                             </td>
                             <td>
-                                <Form.Group controlId='Gender' className='registerform-group'>
+                                <Form.Group controlId='Gender' >
                                     <Form.Control as="select"
                                         value={gender}
                                         type='text'
@@ -170,7 +170,7 @@ const Register = ({ location, history }) => {
                                 <label>Weight</label>
                             </td>
                             <td>
-                                <Form.Group controlId='Weight' className='registerform-group'>
+                                <Form.Group controlId='Weight' >
                                     <Form.Control
                                         type='text'
                                         placeholder='Weight in Kg'
@@ -187,7 +187,7 @@ const Register = ({ location, history }) => {
                                 </label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId="address" className='registerform-group'>
+                                <Form.Group controlId="address" >
 
                                     <Form.Control as="textarea" rows={2}
                                         type='text'
@@ -204,7 +204,7 @@ const Register = ({ location, history }) => {
                             </td>
                             <td colSpan={5}>
                                 <InputGroup hasValidation>
-                                    <Form.Group controlId='email' className='registerform-group'>
+                                    <Form.Group controlId='email'>
                                         <Form.Control
                                             type='email'
                                             placeholder='email@example.com'
@@ -228,7 +228,7 @@ const Register = ({ location, history }) => {
                             </td>
                             <td colSpan={5}>
                                 <InputGroup hasValidation>
-                                    <Form.Group controlId='phone' className='registerform-group'>
+                                    <Form.Group controlId='phone' >
                                         <Form.Control
                                             type="phone"
                                             maxLength="10"
@@ -251,7 +251,7 @@ const Register = ({ location, history }) => {
                                 </label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='reference' className='registerform-group'>
+                                <Form.Group controlId='reference' >
                                     <Form.Control
                                         as="select"
                                         type='text'
@@ -275,7 +275,7 @@ const Register = ({ location, history }) => {
                                 <label>Password</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='password' className='registerform-group'>
+                                <Form.Group controlId='password' >
                                     <Form.Control
                                         type='password'
                                         placeholder='Enter password'
@@ -291,7 +291,7 @@ const Register = ({ location, history }) => {
                                 <label>Confirm Password</label>
                             </td>
                             <td colSpan={5}>
-                                <Form.Group controlId='confirmPassword' className='registerform-group'>
+                                <Form.Group controlId='confirmPassword' >
                                     <Form.Control
                                         type='password'
                                         placeholder='Confirm password'
