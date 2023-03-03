@@ -26,11 +26,7 @@ const Register = ({ location, history }) => {
   // const [dob, setDob] = useState();
   const [date, setDate] = useState(new Date());
   const [validated, setValidated] = useState(false);
-
   const dispatch = useDispatch();
-
-
-
   // Get user login info from Redux state
   const userRegister = useSelector((state) => state.userRegister)
   const { loading, error, userInfo } = userRegister
@@ -50,12 +46,6 @@ const Register = ({ location, history }) => {
   //     getAge(dob)
   // }, [dob])
 
-  // useEffect(() => {
-  //     // If there is user info then redirect
-  //     if (userInfo) {
-  //         history.push(redirect)
-  //     }
-  // }, [history, userInfo, redirect])
 
   // // Handler that logs in the user
   const submitHandler = (e) => {
@@ -86,8 +76,7 @@ const Register = ({ location, history }) => {
 
   return (
     <>
-      {/* <FormContainer>  */}
-      <h1 style={{ marginLeft: " 127px", fontSize: "22px" }}>Sign Up</h1>
+      <h1 style={{ marginLeft: "-69px" }}>Sign Up</h1>
       <Form onSubmit={submitHandler} className='registerform' >
         <Row>
           <Col md={6}>
@@ -255,259 +244,6 @@ const Register = ({ location, history }) => {
           Sign Up
         </Button>
       </Form>
-
-
-      {/* <Form onSubmit={submitHandler} className='registerform' validated={validated}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <label> Name</label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId='name' >
-                                    <Form.Control
-                                        type='text'
-                                        placeholder='Full Name'
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                    ></Form.Control>
-                                </Form.Group>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Date</label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId='Date'>
-                                    <div >
-                                        <DatePicker
-                                            selected={date}
-                                            onChange={(date) => setDate(date)}
-                                            peekNextMonth
-                                            showMonthDropdown
-                                            dropdownMode="select"
-                                            placeholderText="Date"
-                                            dateFormat="MMMM d, yyyy h:mm aa"
-                                        />
-                                    </div>
-                                </Form.Group>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label>Age</label>
-                            </td>
-                            <td>
-                                <Form.Group controlId='Age' >
-                                    <Form.Control
-                                        type='text'
-                                        placeholder='Age'
-                                        value={age}
-                                        onChange={(e) => setAge(e.target.value)}
-
-                                    ></Form.Control>
-                                </Form.Group>
-                            </td>
-
-
-                            <td>
-                                <label>
-                                    Gender
-                                </label>
-                            </td>
-                            <td>
-                                <Form.Group controlId='Gender' >
-                                    <Form.Control as="select"
-                                        value={gender}
-                                        type='text'
-                                        placeholder='Gender'
-                                        onChange={(e) => setGender(e.target.value)}
-                                    >
-                                        <option value="">Sex</option>
-                                        <option value="FEMALE">FEMALE</option>
-                                        <option value="MALE">MALE</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </td>
-
-                            <td>
-                                <label>Weight</label>
-                            </td>
-                            <td>
-                                <Form.Group controlId='Weight' >
-                                    <Form.Control
-                                        type='text'
-                                        placeholder='Weight in Kg'
-                                        value={weight}
-                                        onChange={(e) => setWeight(e.target.value)}
-
-                                    ></Form.Control>
-                                </Form.Group>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Address
-                                </label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId="address" >
-
-                                    <Form.Control as="textarea" rows={2}
-                                        type='text'
-                                        placeholder='Address'
-                                        value={address}
-                                        onChange={(e) => setAddress(e.target.value)}
-                                    />
-                                </Form.Group>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Email Id</label>
-                            </td>
-                            <td colSpan={5}>
-                                <InputGroup hasValidation>
-                                    <Form.Group controlId='email'>
-                                        <Form.Control
-                                            type='email'
-                                            placeholder='email@example.com'
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            required
-                                        ></Form.Control>
-                                    </Form.Group>
-                                    <Form.Control.Feedback type="invalid">
-                                        Please enter valid email-id.
-                                    </Form.Control.Feedback>
-                                </InputGroup>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label>
-                                    Contact No.
-                                </label>
-                            </td>
-                            <td colSpan={5}>
-                                <InputGroup hasValidation>
-                                    <Form.Group controlId='phone' >
-                                        <Form.Control
-                                            type="phone"
-                                            maxLength="10"
-                                            placeholder='10 digit mobile number'
-                                            value={phone}
-                                            onChange={(e) => setPhone(e.target.value)}
-                                        ></Form.Control>
-                                    </Form.Group>
-                                    <Form.Control.Feedback type="invalid">
-                                        Please enter valid phone no.
-                                    </Form.Control.Feedback>
-                                </InputGroup>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label>
-                                    Reference of Vaidya Manager?
-                                </label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId='reference' >
-                                    <Form.Control
-                                        as="select"
-                                        type='text'
-                                        placeholder='Reference for vaidya manager?'
-                                        value={reference}
-                                        onChange={(e) => setReference(e.target.value)}
-
-                                    >
-                                        <option value="">Select</option>
-                                        <option value="Newspaper">Newspaper</option>
-                                        <option value="Internet">Internet</option>
-                                        <option value="Call Center">Call Center</option>
-                                        <option value="Friend/Relative">Friend/Relative</option>
-                                        <option value="Other">Other</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Password</label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId='password' >
-                                    <Form.Control
-                                        type='password'
-                                        placeholder='Enter password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    ></Form.Control>
-                                </Form.Group>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label>Confirm Password</label>
-                            </td>
-                            <td colSpan={5}>
-                                <Form.Group controlId='confirmPassword' >
-                                    <Form.Control
-                                        type='password'
-                                        placeholder='Confirm password'
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                    ></Form.Control>
-                                </Form.Group>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>  <Button type='submit' variant='primary'>
-                                Register
-                            </Button>
-                                <ToastContainer />
-                            </td>
-                            <td>
-                                <Button t variant='primary'>
-                                    Reset
-                                </Button></td>
-                        </tr>
-
-                        {/* <div className="userimage-upload">
-                            <label for="file-input">
-                                <img src={"/images/user(1).png"} alt="image" />
-                            </label>
-
-                            <input id="file-input" type="file" />
-                        </div>
-
-            
-
-
-                    </tbody>
-                </table>
-            </Form > 
-            {/* <Row className='py-3'>
-                        <Col style={{ color: "black" }}>
-                            Have an Account?{' '}
-
-                            <Link style={{ backgroundColor: "white" }}
-                                to={redirect ? `/login?redirect=${redirect}` : '/login'}
-                            >
-                                Login
-                            </Link>
-                        </Col>
-                    </Row> */}
-      {/* </FormContainer>  */}
     </>
   )
 }

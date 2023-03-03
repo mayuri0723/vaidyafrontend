@@ -177,9 +177,9 @@ li {
     }
 }
 
-:not(svg) {
+/* :not(svg) {
     transform-origin: 0px 0px;
-}
+} */
 
 
 @media screen and (max-width: 767px){

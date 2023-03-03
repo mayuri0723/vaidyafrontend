@@ -16,10 +16,10 @@
     position: sticky;
   }
   
-  #divOuter{
+  /* #divOuter{
     width: 190px; 
     overflow: hidden;
-  }
+  } */
 
   .symptomcard{
     color: black;
