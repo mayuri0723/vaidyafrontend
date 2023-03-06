@@ -637,9 +637,10 @@ function PrescriptionWindow2() {
         </table>
         {/* table End */}
         {/* table Starts */}
-        <table  cellspacing="5px" cellpadding="5%" align="center" >
+        <table cellspacing="5px" cellpadding="5%" align="center" style={{margin:"0 0 0"}} >
           <tr>
             <td colSpan={'2'}>
+              <h1>Payment Section</h1>
               <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
                 <tr>
                   <td>Payment
@@ -683,7 +684,7 @@ function PrescriptionWindow2() {
 
                 </tr>
                 <tr>
-                  <td> Debit/Credit</td>
+                  <td> Debit</td>
                   <td>
                     <input
                       className='p-input'
@@ -707,7 +708,7 @@ function PrescriptionWindow2() {
                 </tr>
 
                 <tr>
-                  <td>Mode of</td>
+                  <td>Mode of Payment</td>
                   <td>
                     <label>
                       select
@@ -719,11 +720,28 @@ function PrescriptionWindow2() {
                     </label>
                     <br /></td>
                 </tr>
-
+                {/* Payment Remark */}
+                <tr>
+                  <td colSpan={2}>
+                  <div>
+                    <Icon baseClassName="fas" className="fa-plus-circle" fontSize="small" onClick={togglePopup} />
+                    {isOpen && <input className='popup-box'
+                      content={<>
+                        <b>Remark</b>
+                      </>}
+                      value={prescription.Remark}
+                      onChange={(e) => setPrescription({ ...prescription, Remark: e.target.value })}
+                      handleClose={togglePopup}
+                    />}
+                  </div>
+                  </td>
+               
+                </tr>
               </table>
             </td>
             <td>
-              <table border="1px" bordercolor="black" cellspacing="5px" cellpadding="5%" align="center" style={{ margin: "-228px 0 0 0"}}>
+            
+              <table border="1px" bordercolor="black" cellspacing="5px" cellpadding="5%" align="center" style={{ margin: "-228px 0 0 0" }}>
                 <tr>
                   <td colSpan={'2'}>
                     <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
