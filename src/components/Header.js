@@ -63,13 +63,13 @@ const Header = ({location, history}) => {
                                         &nbsp;  |&nbsp;
                                     </Navbar.Brand>
                                 </LinkContainer>
-                                {
+                                {/* {
                                     isSuperAdmin ? <LinkContainer to={`/dashboard`}>
                                         <Navbar.Brand>Dashboard
                                             &nbsp;  |&nbsp;
                                         </Navbar.Brand>
                                     </LinkContainer> : ""
-                                }
+                                } */}
                                 {
                                     isSuperAdmin ? <LinkContainer to={`/mastertab`}>
                                         <Navbar.Brand>Patient Registeration

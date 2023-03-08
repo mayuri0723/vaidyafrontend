@@ -65,6 +65,7 @@ function PrescriptionWindow2() {
           Remark: prescription.Remark
 
         }
+        console.log(mainPrescription)
         dispatch(addPrescriptionUser(mainPrescription))
 
       })
@@ -78,7 +79,7 @@ function PrescriptionWindow2() {
 
   const allMedicines = useSelector((state) => state.getallMedicineList)
   const { loadingMedicine, errorMedicine, medicinesList } = allMedicines;
-
+ 
 
   // User(Patient)List
   const Patient = useSelector((state) => state.userInfoDetails)
@@ -97,12 +98,14 @@ function PrescriptionWindow2() {
   const [translateinputValue, setTranslateInputValue] = React.useState("");
   const [translatedValue, setTranslatedValue] = React.useState("");
   const [selectValue, setSelectValue] = React.useState("");
-  const [paymentMode, setPaymentMode] = useState('');
+  // const [paymentMode, setPaymentMode] = useState('');
   const [symptomList, setSymptomList] = useState([]);
 
-  const handleSelectPayment = (event) => {
-    setPaymentMode(event.target.value);
-  };
+  // const handleSelectPayment = (event) => {
+  //   setPaymentMode(event.target.value);
+  // };
+
+  //select langauage
   const handleSelectChange = (event) => {
     setSelectValue(event.target.value);
   };
@@ -118,7 +121,7 @@ function PrescriptionWindow2() {
     );
   }, [translateinputValue]);
 
-
+  //add symptoms
   const addSymptomArray = () => {
     setTranslateInputValue('');
     if (selectValue === "") {
@@ -128,7 +131,7 @@ function PrescriptionWindow2() {
     }
     setSymptomList(prevItems => prevItems.concat(document.getElementById("translatedvalue").value));
   }
-
+  //remove symptoms
   const removeSymptomArray = item => {
     // Remove an item from the array using `filter`
     setSymptomList(prevItems => prevItems?.filter(i => i !== item));
@@ -148,20 +151,25 @@ function PrescriptionWindow2() {
     alert(`${medicineName} is already added.`);
   }
 
+  //remove field of medicines
   const removeFields = (index) => {
     let data = [...inputFields];
     data.splice(index, 1)
     setInputFields(data)
   }
 
-  //payment states
+  //payment{} states
   const [inputVal, setInputVal] = useState({
     Consulting: "",
     medicine: "",
     paid: "",
     Debit_Credit: "",
-    discount: ""
+    discount: "",
+    paymentmode: "",
+    paymentRemark: "",
+
   });
+  console.log("Payment Details", inputVal);
   const updateInputVal = (pairs) =>
     setInputVal((prevInputVal) => ({ ...prevInputVal, ...pairs }));
 
@@ -171,17 +179,25 @@ function PrescriptionWindow2() {
       const newPaid = Number(value) + Number(inputVal.medicine);
       updateInputVal({ paid: newPaid });
     }
-    if (name === "medicine") {
+    else if (name === "medicine") {
       const newPaid = Number(value) + Number(inputVal.Consulting);
       updateInputVal({ paid: newPaid });
     }
-    if (name === "discount") {
+    else if (name === "discount") {
       // console.log("value",value)
       const newPaid = Number(inputVal.paid) - Number(value);
       updateInputVal({ Debit_Credit: newPaid });
       // console.log("paid",inputVal)
     }
+    else if (name === "paymentmode") {
+      updateInputVal({ paymentmode: value });
+    }
+    else if (name === "paymentRemark") {
+      updateInputVal({ paymentRemark: value });
+    }
     updateInputVal({ [name]: value });
+
+
   };
 
   // Modal
@@ -232,7 +248,7 @@ function PrescriptionWindow2() {
     }
   }
 
-
+  //diet array 
   const [dietArray, setDietArray] = React.useState([]);
   const [preDiet, setPreDiet] = useState({
     wtodo: "",
@@ -430,10 +446,7 @@ function PrescriptionWindow2() {
     // console.log(e)
     const selectedUserPhone = e.target.innerText.split("-")?.[1].trim()
     const user = users?.find((user) => user?.phone.toString() === selectedUserPhone)
-
     setPatient(user);
-    // console.log(selectedUserId)
-    // console.log("this is ", patient, user);
   }
 
   useEffect(() => {
@@ -450,6 +463,7 @@ function PrescriptionWindow2() {
 
   return (
     <>
+  
       <div className="card">
         <div className="card-body">
           <Autocomplete
@@ -460,6 +474,7 @@ function PrescriptionWindow2() {
             }}
             freeSolo
             options={users}
+            
             style={{
               width: 150,
               // margin: "-24px 15px 0px 54px",
@@ -582,353 +597,376 @@ function PrescriptionWindow2() {
       <Form onSubmit={submitHandler}>
         {/* table Starts */}
         <table className="table table-borderless" bordercolor="black">
-          <tr>
-            <td style={{ borderRight: "1px solid " }}>
-              {symptomList.map(item => (
-                <div key={item}>
-                  {item}
-                  <button onClick={() => removeSymptomArray(item)}>Remove</button>
+          <tbody>
+            <tr>
+              <td style={{ borderRight: "1px solid " }}>
+                {symptomList.map(item => (
+                  <div key={item}>
+                    {item}
+                    <button onClick={() => removeSymptomArray(item)}>Remove</button>
+                  </div>
+                ))}
+                <input id="translatedvalue" className='p-input' value={translatedValue} type="hidden" />
+
+                {/* remark tag */}
+                <div>
+                  <Icon baseClassName="fas" className="fa-plus-circle" fontSize="small" onClick={togglePopup} />
+                  {isOpen && <input className='popup-box'
+                    content={<>
+                      <b>Remark</b>
+                    </>}
+                    value={prescription.Remark}
+                    onChange={(e) => setPrescription({ ...prescription, Remark: e.target.value })}
+                  // handleClose={togglePopup}
+                  />}
                 </div>
-              ))}
-              <input id="translatedvalue" className='p-input' value={translatedValue} type="hidden" />
-
-              <div>
-                <Icon baseClassName="fas" className="fa-plus-circle" fontSize="small" onClick={togglePopup} />
-                {isOpen && <input className='popup-box'
-                  content={<>
-                    <b>Remark</b>
 
 
-                  </>}
-                  value={prescription.Remark}
-                  onChange={(e) => setPrescription({ ...prescription, Remark: e.target.value })}
-                  handleClose={togglePopup}
-                />}
-              </div>
+              </td>
+              <td>
+                {inputFields.map((input, index) => {
+                  return (
+                    <div key={index}>
+                      <div id="divOuter">
+                        <div id="divInner">
 
-
-            </td>
-            <td>
-              {inputFields.map((input, index) => {
-                return (
-                  <div key={index}>
-                    <div id="divOuter">
-                      <div id="divInner">
-
-                        <h6 id={'med' + index} >{input.med.medicineName}</h6>
-                        <input type="hidden" className='p-input' value={input.med.id} name="medId[]" />
-                        <input id={'d' + index} className='partitioned' type="text" placeholder='Dose' name='dose' maxlength="4" onChange={updateDose} />
-                        <Button variant="contained"
-                          onClick={() => removeFields(index)}
-                        >  <DeleteIcon fontSize='medium' />  </Button>
+                          <h6 id={'med' + index} >{input.med.medicineName}</h6>
+                          <input type="hidden" className='p-input' value={input.med.id} name="medId[]" />
+                          <input id={'d' + index} className='partitioned' type="text" placeholder='Dose' name='dose' maxLength="4" onChange={updateDose} />
+                          <Button variant="contained"
+                            onClick={() => removeFields(index)}
+                          >  <DeleteIcon fontSize='medium' />  </Button>
+                        </div>
                       </div>
+    
                     </div>
+                  )
+                })}
+              </td>
+              <td>
+              </td>
+              <td style={{ width: "40%" }}>
+              </td>
+            </tr>
+          </tbody>
 
-                  </div>
-                )
-              })}
-            </td>
-            <td>
-            </td>
-            <td style={{ width: "40%" }}>
-
-            </td>
-          </tr>
         </table>
         {/* table End */}
-        {/* table Starts */}
-        <table cellspacing="5px" cellpadding="5%" align="center" style={{margin:"0 0 0"}} >
-          <tr>
-            <td colSpan={'2'}>
-              <h1>Payment Section</h1>
-              <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
-                <tr>
-                  <td>Payment
-                  </td>
-                  <td> Rupee</td>
-                </tr>
-                <tr>
-                  <td> Consultation</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="Consulting"
-                      className='p-input'
-                      value={inputVal.Consulting}
-                      onChange={onValueChange}
-                    /></td>
-
-                </tr>
-                <tr>
-                  <td> Medicines</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="medicine"
-                      className='p-input'
-                      value={inputVal.medicine}
-                      onChange={onValueChange}
-                    /> </td>
-
-                </tr>
-                <tr>
-                  <td> Paid</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="paid"
-                      className='p-input'
-                      value={inputVal.paid}
-
-                      onChange={onValueChange} /></td>
-
-                </tr>
-                <tr>
-                  <td> Debit</td>
-                  <td>
-                    <input
-                      className='p-input'
-                      type="text"
-                      name="Debit_Credit"
-                      value={inputVal.Debit_Credit}
-                      onChange={onValueChange} readOnly />
-                  </td>
-
-                </tr>
-                <tr>
-                  <td>Discount</td>
-                  <td>
-                    <input
-                      className='p-input'
-                      type="text"
-                      name="discount"
-                      value={inputVal.discount}
-                      onChange={onValueChange} />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Mode of Payment</td>
-                  <td>
-                    <label>
-                      select
-                      <select value={paymentMode} onChange={handleSelectPayment} className='p-input'>
-                        <option value="Cash">Cash</option>
-                        <option value="Online">Online</option>
-                        <option value="Card Payment">Card Payment</option>
-                      </select>
-                    </label>
-                    <br /></td>
-                </tr>
-                {/* Payment Remark */}
-                <tr>
-                  <td colSpan={2}>
-                  <div>
-                    <Icon baseClassName="fas" className="fa-plus-circle" fontSize="small" onClick={togglePopup} />
-                    {isOpen && <input className='popup-box'
-                      content={<>
-                        <b>Remark</b>
-                      </>}
-                      value={prescription.Remark}
-                      onChange={(e) => setPrescription({ ...prescription, Remark: e.target.value })}
-                      handleClose={togglePopup}
-                    />}
-                  </div>
-                  </td>
-               
-                </tr>
-              </table>
-            </td>
-            <td>
-            
-              <table border="1px" bordercolor="black" cellspacing="5px" cellpadding="5%" align="center" style={{ margin: "-228px 0 0 0" }}>
-                <tr>
-                  <td colSpan={'2'}>
-                    <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
-                      <td style={{ width: "30%" }}>Document</td>
-
+        {/* payment table Starts */}
+        <table cellSpacing="5px" cellPadding="5%" align="center" style={{ margin: "0 0 0" }} >
+          <tbody>
+            <tr>
+              <td colSpan={'2'}>
+                <h1>Payment Section</h1>
+                <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
+                  <tbody>
+                    <tr>
+                      <td>Payment
+                      </td>
+                      <td> Rupee</td>
+                    </tr>
+                    <tr>
+                      <td> Consultation</td>
                       <td>
-                        Image
-                        <div className="image-upload">
-                          <img src='images/upload.png' />
-                          <input id="file-input" type="file" className='p-input'
-                            value={prescription.image}
-                            onChange={(e) => handleImageUpload(e.target.files[0])} />
-                          <label id="markImageAttached" ></label>
-                        </div>
-                      </td>
+                        <input
+                          type="text"
+                          name="Consulting"
+                          className='p-input'
+                          value={inputVal.Consulting}
+                          onChange={onValueChange}
+                        /></td>
 
-                      <td> Video
-                        <div className="image-upload">
-                          <img src='images/video.png' />
-                          <input id="video-file-input"
-                            value={prescription.video}
-                            onChange={(e) => handleVideoUpload(e.target.files[0])}
-                            type="file" />
-                          <label id="markVideoAttached" ></label>
-
-                        </div>
-                      </td>
-                      <td> Report
-                        <div className="image-upload">
-                          <img src='images/medical-report.png' />
-                          <input id="report-file-input"
-                            value={prescription.report}
-                            onChange={(e) => handleReportUpload(e.target.files[0])}
-                            type="file" />
-                          <label id="markReportAttached" ></label>
-
-                        </div>
-                      </td>
-
+                    </tr>
+                    <tr>
+                      <td> Medicines</td>
                       <td>
-                        Diet
-                        <div className="image-upload">
-                          &nbsp;&nbsp;
-                          <img src='images/cereal.png' onClick={handleShow} />
-                          <Modal
-                            show={show}
-                            size="lg"
-                            aria-labelledby="contained-modal-title-vcenter"
-                            centered
-                            onHide={handleClose}>
-                            <Modal.Header closeButton>
-                              <Modal.Title>Diet Chart</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                              <div>
-                                <div className="row align-items-center">
-                                  <div className="col">
-                                    <input
-                                      id="dos"
-                                      defaultChecked
-                                      type="radio"
-                                      value="1"
-                                      name="allowance"
+                        <input
+                          type="text"
+                          name="medicine"
+                          className='p-input'
+                          value={inputVal.medicine}
+                          onChange={onValueChange}
+                        /> </td>
 
-                                      onChange={headerChange}
-                                    />
-                                    <label htmlFor="dos">Do's</label>
-                                  </div>
-                                  <div className="col">
-                                    <input
-                                      id="dont"
-                                      type="radio"
-                                      value="2"
-                                      name="allowance"
-                                      onChange={headerChange}
-                                    />
-                                    <label htmlFor="dont">Dont's</label>
-                                  </div>
-                                  <div className="col">
-                                    <input
-                                      id="Occasional"
-                                      type="radio"
-                                      value="3"
-                                      name="allowance"
-                                      onChange={headerChange}
-                                    />
-                                    <label htmlFor="Occasional">Occasional</label>
-                                  </div>
-                                  <div className="col">
-                                    <input
-                                      id="Omit"
-                                      type="radio"
-                                      value="4"
-                                      name="allowance"
-                                      onChange={headerChange}
-                                    />
-                                    <label htmlFor="Omit">Omit</label>
-                                  </div>
-                                  <div className="col">
-                                    <input
-                                      id="all"
-                                      type="button"
-                                      value="all"
-                                      name="allowance"
-                                      onClick={handelAllButtonClick}
-                                    />
-                                    <label htmlFor="all">All</label>
-                                  </div>
-                                  <div className="col">
-                                    <Button variant="success" onClick={() => handelInstructionShow()} >Import</Button>
-                                  </div>
-                                </div>
-                              </div>
+                    </tr>
+                    <tr>
+                      <td> Paid</td>
+                      <td>
+                        <input
+                          type="text"
+                          name="paid"
+                          className='p-input'
+                          value={inputVal.paid}
 
-                              <div>
+                          onChange={onValueChange} /></td>
 
-                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                  {
-                                    dietCategories.map((category, index) => {
-                                      return <div className='categoryClass' style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
-                                        {category}
-                                        {
-                                          DiechartList?.filter((elem) => { return elem.category == category }).map((diet, index) => (
-                                            <div key={index}>
-                                              {
-                                                <span
-                                                  onClick={handelMarkState}
-                                                  id={"lb" + diet.id}
-                                                  style={{ fontSize: "1.5rem", cursor: "pointer" }}
-                                                  dangerouslySetInnerHTML={{ __html: getUniCodeFromId(dietArray.find((elem) => { return diet.id == elem.diet.id })?.allowance) }}
-                                                ></span>
-                                              }
+                    </tr>
+                    <tr>
+                      <td> Debit</td>
+                      <td>
+                        <input
+                          className='p-input'
+                          type="text"
+                          name="Debit_Credit"
+                          value={inputVal.Debit_Credit}
+                          onChange={onValueChange} readOnly />
+                      </td>
 
-                                              <label htmlFor={"lb" + diet.id}> {diet.name}</label>
-                                            </div>
-                                          ))
-                                        }
+                    </tr>
+                    <tr>
+                      <td>Discount</td>
+                      <td>
+                        <input
+                          className='p-input'
+                          type="text"
+                          name="discount"
+                          value={inputVal.discount}
+                          onChange={onValueChange} />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Mode of Payment</td>
+                      <td>
+                        <label>
+                          select
+                          <select
+                            name="paymentmode"
+                            value={inputVal.paymentmode}
+                            onChange={onValueChange}
+                            className='p-input'
+                          >
+                            <option value="Cash">Cash</option>
+                            <option value="Online">Online</option>
+                            <option value="Card Payment">Card Payment</option>
+                          </select>
+                        </label>
+                        <br /></td>
+                    </tr>
+                    {/* Payment Remark */}
+                    <tr>
+                      <td colSpan={2}>
+                        <div>
+                          <Icon baseClassName="fas" className="fa-plus-circle" fontSize="small" onClick={togglePopup} />
+                          {isOpen &&
+                            <input className='popup-box'
+                              content={<>  <b> Payment Remark</b> </>}
+                              name="paymentRemark"
+                              value={inputVal.paymentRemark}
+                              onChange={onValueChange}
+                            // handleClose={togglePopup}
+                            />}
+                        </div>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+
+                <table border="1px" bordercolor="black" cellSpacing="5px" cellPadding="5%" align="center" style={{ margin: "-228px 0 0 0" }}>
+                  <tbody>
+                    <tr>
+                      <td colSpan={'2'}>
+                        <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
+                          <tbody>
+                            <tr>
+
+                           
+                          <td style={{ width: "30%" }}>Document</td>
+
+                          <td>
+                            Image
+                            <div className="image-upload">
+                              <img src='images/upload.png' />
+                              <input id="file-input" type="file" className='p-input'
+                                value={prescription.image}
+                                onChange={(e) => handleImageUpload(e.target.files[0])} />
+                              <label id="markImageAttached" ></label>
+                            </div>
+                          </td>
+
+                          <td> Video
+                            <div className="image-upload">
+                              <img src='images/video.png' />
+                              <input id="video-file-input"
+                                value={prescription.video}
+                                onChange={(e) => handleVideoUpload(e.target.files[0])}
+                                type="file" />
+                              <label id="markVideoAttached" ></label>
+
+                            </div>
+                          </td>
+                          <td> Report
+                            <div className="image-upload">
+                              <img src='images/medical-report.png' />
+                              <input id="report-file-input"
+                                value={prescription.report}
+                                onChange={(e) => handleReportUpload(e.target.files[0])}
+                                type="file" />
+                              <label id="markReportAttached" ></label>
+
+                            </div>
+                          </td>
+
+                          <td>
+                            Diet
+                            <div className="image-upload">
+                              &nbsp;&nbsp;
+                              <img src='images/cereal.png' onClick={handleShow} />
+                              <Modal
+                                show={show}
+                                size="lg"
+                                aria-labelledby="contained-modal-title-vcenter"
+                                centered
+                                onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                  <Modal.Title>Diet Chart</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                  <div>
+                                    <div className="row align-items-center">
+                                      <div className="col">
+                                        <input
+                                          id="dos"
+                                          defaultChecked
+                                          type="radio"
+                                          value="1"
+                                          name="allowance"
+
+                                          onChange={headerChange}
+                                        />
+                                        <label htmlFor="dos">Do's</label>
                                       </div>
-                                    })
-                                  }
-                                </div>
-                                <div className="row">
-                                  <div className="col">
-                                    <InputGroup>
-                                      <InputGroup.Text >What to do</InputGroup.Text>
-                                      <Form.Control id={'what_todo'} as="textarea" aria-label="With textarea" />
-                                    </InputGroup>
+                                      <div className="col">
+                                        <input
+                                          id="dont"
+                                          type="radio"
+                                          value="2"
+                                          name="allowance"
+                                          onChange={headerChange}
+                                        />
+                                        <label htmlFor="dont">Dont's</label>
+                                      </div>
+                                      <div className="col">
+                                        <input
+                                          id="Occasional"
+                                          type="radio"
+                                          value="3"
+                                          name="allowance"
+                                          onChange={headerChange}
+                                        />
+                                        <label htmlFor="Occasional">Occasional</label>
+                                      </div>
+                                      <div className="col">
+                                        <input
+                                          id="Omit"
+                                          type="radio"
+                                          value="4"
+                                          name="allowance"
+                                          onChange={headerChange}
+                                        />
+                                        <label htmlFor="Omit">Omit</label>
+                                      </div>
+                                      <div className="col">
+                                        <input
+                                          id="all"
+                                          type="button"
+                                          value="all"
+                                          name="allowance"
+                                          onClick={handelAllButtonClick}
+                                        />
+                                        <label htmlFor="all">All</label>
+                                      </div>
+                                      <div className="col">
+                                        <Button variant="success" onClick={() => handelInstructionShow()} >Import</Button>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <div className="col">
-                                    <InputGroup>
-                                      <InputGroup.Text>What to don't</InputGroup.Text>
-                                      <Form.Control id={'what_todont'} as="textarea" aria-label="With textarea" />
-                                    </InputGroup>
+
+
+
+                                  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                    {
+                                      dietCategories.map((category, index) => {
+                                        return <div className='categoryClass' style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
+                                          {category}
+                                          {
+                                            DiechartList?.filter((elem) => { return elem.category == category }).map((diet, index) => (
+                                              <div key={index}>
+                                                {
+                                                  <span
+                                                    onClick={handelMarkState}
+                                                    id={"lb" + diet.id}
+                                                    style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                                                    dangerouslySetInnerHTML={{ __html: getUniCodeFromId(dietArray.find((elem) => { return diet.id == elem.diet.id })?.allowance) }}
+                                                  ></span>
+                                                }
+
+                                                <label htmlFor={"lb" + diet.id}> {diet.name}</label>
+                                              </div>
+                                            ))
+                                          }
+                                        </div>
+                                      })
+                                    }
                                   </div>
-                                </div>
+                                  <div className="row">
+                                    <div className="col">
+                                      <InputGroup>
+                                        <InputGroup.Text >What to do</InputGroup.Text>
+                                        <Form.Control id={'what_todo'} as="textarea" aria-label="With textarea" />
+                                      </InputGroup>
+                                    </div>
+                                    <div className="col">
+                                      <InputGroup>
+                                        <InputGroup.Text>What to don't</InputGroup.Text>
+                                        <Form.Control id={'what_todont'} as="textarea" aria-label="With textarea" />
+                                      </InputGroup>
+                                    </div>
+                                  </div>
 
-                              </div>
 
-                            </Modal.Body>
-                            <Modal.Footer>
-                              <Button variant="secondary" onClick={handleClose}>
-                                Close
-                              </Button>
-                              <Button
-                                variant="primary"
-                                onClick={setDietArrayLocally}
-                              >
-                                Save Changes
-                              </Button>
-                            </Modal.Footer>
-                          </Modal>
-                        </div>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                  <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                  </Button>
+                                  <Button
+                                    variant="primary"
+                                    onClick={setDietArrayLocally}
+                                  >
+                                    Save Changes
+                                  </Button>
+                                </Modal.Footer>
+                              </Modal>
+                            </div>
+                          </td>
+                          </tr>
+                          </tbody>
+                        </table>
                       </td>
 
-                    </table>
-                  </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
 
-                </tr>
-              </table>
-            </td>
-          </tr>
         </table>
 
         {/* table End */}
+        <div className='prebutton'>
         <Button type='submit' variant='primary' >
           Save
         </Button>
+        <Button>
+          Print
+        </Button>
+        </div>
+       
       </Form>
       <Modal
         show={showInstruction}
