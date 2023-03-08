@@ -50,8 +50,6 @@ function PrescriptionWindow2() {
           medicineAndDoseArray.push({ dose: obj.dose, medicineDetails: obj.med._id })
         });
 
-        // console.log("Response is", response)
-        // console.log("medicine ", medicineAndDoseArray)
         let mainPrescription = {
           prescriptionUser: patient?._id,
           Symptoms: symptomList,
@@ -79,7 +77,7 @@ function PrescriptionWindow2() {
 
   const allMedicines = useSelector((state) => state.getallMedicineList)
   const { loadingMedicine, errorMedicine, medicinesList } = allMedicines;
- 
+
 
   // User(Patient)List
   const Patient = useSelector((state) => state.userInfoDetails)
@@ -98,12 +96,7 @@ function PrescriptionWindow2() {
   const [translateinputValue, setTranslateInputValue] = React.useState("");
   const [translatedValue, setTranslatedValue] = React.useState("");
   const [selectValue, setSelectValue] = React.useState("");
-  // const [paymentMode, setPaymentMode] = useState('');
   const [symptomList, setSymptomList] = useState([]);
-
-  // const handleSelectPayment = (event) => {
-  //   setPaymentMode(event.target.value);
-  // };
 
   //select langauage
   const handleSelectChange = (event) => {
@@ -115,7 +108,6 @@ function PrescriptionWindow2() {
   React.useEffect(() => {
     googleTransliterate(request, translateinputValue, selectValue, maxResult).then(
       function (response) {
-        // console.log(response, "response");
         setTranslatedValue(response[0][0]);
       }
     );
@@ -169,7 +161,6 @@ function PrescriptionWindow2() {
     paymentRemark: "",
 
   });
-  console.log("Payment Details", inputVal);
   const updateInputVal = (pairs) =>
     setInputVal((prevInputVal) => ({ ...prevInputVal, ...pairs }));
 
@@ -184,10 +175,8 @@ function PrescriptionWindow2() {
       updateInputVal({ paid: newPaid });
     }
     else if (name === "discount") {
-      // console.log("value",value)
       const newPaid = Number(inputVal.paid) - Number(value);
       updateInputVal({ Debit_Credit: newPaid });
-      // console.log("paid",inputVal)
     }
     else if (name === "paymentmode") {
       updateInputVal({ paymentmode: value });
@@ -203,7 +192,6 @@ function PrescriptionWindow2() {
   // Modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const handleShow = () => {
     setAllowanceState("1");
     setShow(true);
@@ -340,40 +328,50 @@ function PrescriptionWindow2() {
     })
   }
 
-  // const [isPanchkarmaChecked, setIsPanchkarmaChecked] = useState(true);
-  // //panchkarma toggle
-  // const toggleSelect = () => {
-  //   setIsPanchkarmaChecked(!isPanchkarmaChecked)
-  // }
+  const generatePrecription = () => {
+    // Create a new PDF document
+    console.log("pdf is generated")
+    const doc = new jsPDF('p', 'pt', 'a4');
+    doc.setFillColor('#ccf9f5');
+    doc.rect(0, 0, doc.internal.pageSize.width, 80, 'F'); // x, y, width, height, style
+    // Get the HTML content to be converted to PDF
+    const content = document.getElementById('pdf-content');
+    // doc.text('Prescription', 200, 80); //string, x-position, y-position
+    var image = new Image();
+    image.src = 'images/vaidya-logo-preview.png';
+    doc.addImage(image, 'PNG', doc.internal.pageSize.width - 190, 10, 180, 90);
+    doc.setFontSize(18);
+    // doc.text('Prescription', 100, 120);
+    doc.text(`Patient Name: ${patient?.name}`, 10, 80);
+    doc.text(`Prescription Days:${prescription.prescriptiondays}`, 10, 100);
+    doc.text(`Remark:${prescription.Remark}`, 10, 120);
+   // Show symptoms, medicine names and doses
+  let startY = 160; // Set starting y position for the first item
+  inputFields.forEach((input, index) => {
+    const medicineName = input.med.medicineName;
+    const dose = input.dose;
 
+    // Show medicine name
+    doc.setFontSize(12);
+    doc.text(`Medicine ${index + 1}: ${medicineName}`, 10, startY);
 
-  // //add input box on selection
-  // const selectPanchkarma = (e) => {
-  //   if (prescription.panchkarma.every((el) => el.panchkarma_name !== e.target.value)) {
-  //     const tempData = { panchkarma_name: e.target.value, panchkarma_days: '0' }
-  //     setPrescription({ ...prescription, panchkarma: [...prescription.panchkarma, tempData] })
-  //   }
-  // }
+    // Show dose
+    doc.setFontSize(10);
+    doc.text(`Dose: ${dose}`, 10, startY + 20);
 
+    // Show symptoms
+    const symptoms = prescription.symptoms;
+    doc.setFontSize(10);
+    doc.text(`Symptoms: ${symptomList}`, 10, startY + 40);
 
-  // const removeDays = (pname) => {
-  //   const a = prescription.panchkarma.filter((v) => v.panchkarma_name !== pname)
-  //   setPrescription({ ...prescription, panchkarma: a })
+    startY += 70; // Increase y position for the next item
+  });
 
-  // }
+    // doc.addImage(image, 'PNG', 300, 50, 150, 80); //base64 image, format, x-coordinate, y-coordinate, width, height
+    // Save the PDF
+    doc.save('prescription.pdf');
 
-  // const handlePanchkarmaDay = (e) => {
-  //   const tempDay = prescription.panchkarma.map((el) => {
-  //     if (el.panchkarma_name === e.target.name) {
-  //       return { panchkarma_name: e.target.name, panchkarma_days: e.target.value }
-  //     }
-  //     else {
-  //       return { ...el }
-  //     }
-  //   })
-  //   setPrescription({ ...prescription, panchkarma: tempDay })
-  // }
-
+  }
 
   const [medicineAndDoseArray, setMedicineAndDoseArray] = React.useState([]);
   const updateDose = (e) => {
@@ -390,8 +388,6 @@ function PrescriptionWindow2() {
   }
 
   //image upload 
-
-
   const [imagefile, setImageFile] = useState();
   const handleImageUpload = (file) => {
     if (file.size <= 7 * 1024) {
@@ -463,21 +459,17 @@ function PrescriptionWindow2() {
 
   return (
     <>
-  
       <div className="card">
         <div className="card-body">
           <Autocomplete
             id="highlights-demo"
-            // sx={{ width: 300 }}
             sx={{
               "& fieldset": { border: 'none' },
             }}
             freeSolo
             options={users}
-            
             style={{
               width: 150,
-              // margin: "-24px 15px 0px 54px",
               fontWeight: "bold"
             }}
             getOptionLabel={(option) => `${option?.name} - ${option?.phone}`}
@@ -513,7 +505,6 @@ function PrescriptionWindow2() {
           </div>
         </div>
       </div>
-
       {/* second Card */}
       <div className="symptomcard">
         <div className="card-body">
@@ -543,7 +534,6 @@ function PrescriptionWindow2() {
             <div className="col">
               <Autocomplete
                 id="highlights-demo"
-                // sx={{ width: 300 }}
                 sx={{
                   "& fieldset": { border: 'none' },
                 }}
@@ -596,7 +586,7 @@ function PrescriptionWindow2() {
 
       <Form onSubmit={submitHandler}>
         {/* table Starts */}
-        <table className="table table-borderless" bordercolor="black">
+        <table id="pdf-content" className="table table-borderless" bordercolor="black">
           <tbody>
             <tr>
               <td style={{ borderRight: "1px solid " }}>
@@ -617,7 +607,6 @@ function PrescriptionWindow2() {
                     </>}
                     value={prescription.Remark}
                     onChange={(e) => setPrescription({ ...prescription, Remark: e.target.value })}
-                  // handleClose={togglePopup}
                   />}
                 </div>
 
@@ -638,7 +627,7 @@ function PrescriptionWindow2() {
                           >  <DeleteIcon fontSize='medium' />  </Button>
                         </div>
                       </div>
-    
+
                     </div>
                   )
                 })}
@@ -773,177 +762,177 @@ function PrescriptionWindow2() {
                           <tbody>
                             <tr>
 
-                           
-                          <td style={{ width: "30%" }}>Document</td>
 
-                          <td>
-                            Image
-                            <div className="image-upload">
-                              <img src='images/upload.png' />
-                              <input id="file-input" type="file" className='p-input'
-                                value={prescription.image}
-                                onChange={(e) => handleImageUpload(e.target.files[0])} />
-                              <label id="markImageAttached" ></label>
-                            </div>
-                          </td>
+                              <td style={{ width: "30%" }}>Document</td>
 
-                          <td> Video
-                            <div className="image-upload">
-                              <img src='images/video.png' />
-                              <input id="video-file-input"
-                                value={prescription.video}
-                                onChange={(e) => handleVideoUpload(e.target.files[0])}
-                                type="file" />
-                              <label id="markVideoAttached" ></label>
+                              <td>
+                                Image
+                                <div className="image-upload">
+                                  <img src='images/upload.png' />
+                                  <input id="file-input" type="file" className='p-input'
+                                    value={prescription.image}
+                                    onChange={(e) => handleImageUpload(e.target.files[0])} />
+                                  <label id="markImageAttached" ></label>
+                                </div>
+                              </td>
 
-                            </div>
-                          </td>
-                          <td> Report
-                            <div className="image-upload">
-                              <img src='images/medical-report.png' />
-                              <input id="report-file-input"
-                                value={prescription.report}
-                                onChange={(e) => handleReportUpload(e.target.files[0])}
-                                type="file" />
-                              <label id="markReportAttached" ></label>
+                              <td> Video
+                                <div className="image-upload">
+                                  <img src='images/video.png' />
+                                  <input id="video-file-input"
+                                    value={prescription.video}
+                                    onChange={(e) => handleVideoUpload(e.target.files[0])}
+                                    type="file" />
+                                  <label id="markVideoAttached" ></label>
 
-                            </div>
-                          </td>
+                                </div>
+                              </td>
+                              <td> Report
+                                <div className="image-upload">
+                                  <img src='images/medical-report.png' />
+                                  <input id="report-file-input"
+                                    value={prescription.report}
+                                    onChange={(e) => handleReportUpload(e.target.files[0])}
+                                    type="file" />
+                                  <label id="markReportAttached" ></label>
 
-                          <td>
-                            Diet
-                            <div className="image-upload">
-                              &nbsp;&nbsp;
-                              <img src='images/cereal.png' onClick={handleShow} />
-                              <Modal
-                                show={show}
-                                size="lg"
-                                aria-labelledby="contained-modal-title-vcenter"
-                                centered
-                                onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                  <Modal.Title>Diet Chart</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                  <div>
-                                    <div className="row align-items-center">
-                                      <div className="col">
-                                        <input
-                                          id="dos"
-                                          defaultChecked
-                                          type="radio"
-                                          value="1"
-                                          name="allowance"
+                                </div>
+                              </td>
 
-                                          onChange={headerChange}
-                                        />
-                                        <label htmlFor="dos">Do's</label>
-                                      </div>
-                                      <div className="col">
-                                        <input
-                                          id="dont"
-                                          type="radio"
-                                          value="2"
-                                          name="allowance"
-                                          onChange={headerChange}
-                                        />
-                                        <label htmlFor="dont">Dont's</label>
-                                      </div>
-                                      <div className="col">
-                                        <input
-                                          id="Occasional"
-                                          type="radio"
-                                          value="3"
-                                          name="allowance"
-                                          onChange={headerChange}
-                                        />
-                                        <label htmlFor="Occasional">Occasional</label>
-                                      </div>
-                                      <div className="col">
-                                        <input
-                                          id="Omit"
-                                          type="radio"
-                                          value="4"
-                                          name="allowance"
-                                          onChange={headerChange}
-                                        />
-                                        <label htmlFor="Omit">Omit</label>
-                                      </div>
-                                      <div className="col">
-                                        <input
-                                          id="all"
-                                          type="button"
-                                          value="all"
-                                          name="allowance"
-                                          onClick={handelAllButtonClick}
-                                        />
-                                        <label htmlFor="all">All</label>
-                                      </div>
-                                      <div className="col">
-                                        <Button variant="success" onClick={() => handelInstructionShow()} >Import</Button>
-                                      </div>
-                                    </div>
-                                  </div>
+                              <td>
+                                Diet
+                                <div className="image-upload">
+                                  &nbsp;&nbsp;
+                                  <img src='images/cereal.png' onClick={handleShow} />
+                                  <Modal
+                                    show={show}
+                                    size="lg"
+                                    aria-labelledby="contained-modal-title-vcenter"
+                                    centered
+                                    onHide={handleClose}>
+                                    <Modal.Header closeButton>
+                                      <Modal.Title>Diet Chart</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                      <div>
+                                        <div className="row align-items-center">
+                                          <div className="col">
+                                            <input
+                                              id="dos"
+                                              defaultChecked
+                                              type="radio"
+                                              value="1"
+                                              name="allowance"
 
-
-
-                                  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    {
-                                      dietCategories.map((category, index) => {
-                                        return <div className='categoryClass' style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
-                                          {category}
-                                          {
-                                            DiechartList?.filter((elem) => { return elem.category == category }).map((diet, index) => (
-                                              <div key={index}>
-                                                {
-                                                  <span
-                                                    onClick={handelMarkState}
-                                                    id={"lb" + diet.id}
-                                                    style={{ fontSize: "1.5rem", cursor: "pointer" }}
-                                                    dangerouslySetInnerHTML={{ __html: getUniCodeFromId(dietArray.find((elem) => { return diet.id == elem.diet.id })?.allowance) }}
-                                                  ></span>
-                                                }
-
-                                                <label htmlFor={"lb" + diet.id}> {diet.name}</label>
-                                              </div>
-                                            ))
-                                          }
+                                              onChange={headerChange}
+                                            />
+                                            <label htmlFor="dos">Do's</label>
+                                          </div>
+                                          <div className="col">
+                                            <input
+                                              id="dont"
+                                              type="radio"
+                                              value="2"
+                                              name="allowance"
+                                              onChange={headerChange}
+                                            />
+                                            <label htmlFor="dont">Dont's</label>
+                                          </div>
+                                          <div className="col">
+                                            <input
+                                              id="Occasional"
+                                              type="radio"
+                                              value="3"
+                                              name="allowance"
+                                              onChange={headerChange}
+                                            />
+                                            <label htmlFor="Occasional">Occasional</label>
+                                          </div>
+                                          <div className="col">
+                                            <input
+                                              id="Omit"
+                                              type="radio"
+                                              value="4"
+                                              name="allowance"
+                                              onChange={headerChange}
+                                            />
+                                            <label htmlFor="Omit">Omit</label>
+                                          </div>
+                                          <div className="col">
+                                            <input
+                                              id="all"
+                                              type="button"
+                                              value="all"
+                                              name="allowance"
+                                              onClick={handelAllButtonClick}
+                                            />
+                                            <label htmlFor="all">All</label>
+                                          </div>
+                                          <div className="col">
+                                            <Button variant="success" onClick={() => handelInstructionShow()} >Import</Button>
+                                          </div>
                                         </div>
-                                      })
-                                    }
-                                  </div>
-                                  <div className="row">
-                                    <div className="col">
-                                      <InputGroup>
-                                        <InputGroup.Text >What to do</InputGroup.Text>
-                                        <Form.Control id={'what_todo'} as="textarea" aria-label="With textarea" />
-                                      </InputGroup>
-                                    </div>
-                                    <div className="col">
-                                      <InputGroup>
-                                        <InputGroup.Text>What to don't</InputGroup.Text>
-                                        <Form.Control id={'what_todont'} as="textarea" aria-label="With textarea" />
-                                      </InputGroup>
-                                    </div>
-                                  </div>
+                                      </div>
 
 
-                                </Modal.Body>
-                                <Modal.Footer>
-                                  <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                  </Button>
-                                  <Button
-                                    variant="primary"
-                                    onClick={setDietArrayLocally}
-                                  >
-                                    Save Changes
-                                  </Button>
-                                </Modal.Footer>
-                              </Modal>
-                            </div>
-                          </td>
-                          </tr>
+
+                                      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                        {
+                                          dietCategories.map((category, index) => {
+                                            return <div className='categoryClass' style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
+                                              {category}
+                                              {
+                                                DiechartList?.filter((elem) => { return elem.category == category }).map((diet, index) => (
+                                                  <div key={index}>
+                                                    {
+                                                      <span
+                                                        onClick={handelMarkState}
+                                                        id={"lb" + diet.id}
+                                                        style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                                                        dangerouslySetInnerHTML={{ __html: getUniCodeFromId(dietArray.find((elem) => { return diet.id == elem.diet.id })?.allowance) }}
+                                                      ></span>
+                                                    }
+
+                                                    <label htmlFor={"lb" + diet.id}> {diet.name}</label>
+                                                  </div>
+                                                ))
+                                              }
+                                            </div>
+                                          })
+                                        }
+                                      </div>
+                                      <div className="row">
+                                        <div className="col">
+                                          <InputGroup>
+                                            <InputGroup.Text >What to do</InputGroup.Text>
+                                            <Form.Control id={'what_todo'} as="textarea" aria-label="With textarea" />
+                                          </InputGroup>
+                                        </div>
+                                        <div className="col">
+                                          <InputGroup>
+                                            <InputGroup.Text>What to don't</InputGroup.Text>
+                                            <Form.Control id={'what_todont'} as="textarea" aria-label="With textarea" />
+                                          </InputGroup>
+                                        </div>
+                                      </div>
+
+
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                      <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                      </Button>
+                                      <Button
+                                        variant="primary"
+                                        onClick={setDietArrayLocally}
+                                      >
+                                        Save Changes
+                                      </Button>
+                                    </Modal.Footer>
+                                  </Modal>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </td>
@@ -959,14 +948,17 @@ function PrescriptionWindow2() {
 
         {/* table End */}
         <div className='prebutton'>
-        <Button type='submit' variant='primary' >
-          Save
-        </Button>
-        <Button>
-          Print
-        </Button>
+          <Button type='submit' variant='primary'>
+            Save
+          </Button>
+          <Button
+            variant='primary'
+            onClick={() => generatePrecription()}
+          >
+            Print
+          </Button>
         </div>
-       
+
       </Form>
       <Modal
         show={showInstruction}
