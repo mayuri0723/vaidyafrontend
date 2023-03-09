@@ -31,22 +31,6 @@ const Register = ({ location, history }) => {
   const userRegister = useSelector((state) => state.userRegister)
   const { loading, error, userInfo } = userRegister
 
-  // const redirect = location.search ? location.search.split('=')[1] : '/'
-
-  //calculate the age
-  // const getAge = (dob) => {
-  //     // console.log("do", dob)
-  //     var today = dayjs();
-  //     var birthdate = dayjs(dob)
-  //     var patitentAge = today.diff(birthdate, 'year')
-  //     // console.log("patient age is", patitentAge)
-  //     setAge(parseInt (patitentAge))
-  // }
-  // useEffect(() => {
-  //     getAge(dob)
-  // }, [dob])
-
-
   // // Handler that logs in the user
   const submitHandler = (e) => {
     e.preventDefault()
@@ -128,6 +112,7 @@ const Register = ({ location, history }) => {
               <Form.Control
                 type='tel'
                 placeholder='Phone Number'
+                maxLength="10"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -243,6 +228,7 @@ const Register = ({ location, history }) => {
         <Button type='submit' variant='primary'>
           Sign Up
         </Button>
+        <ToastContainer />
       </Form>
     </>
   )
