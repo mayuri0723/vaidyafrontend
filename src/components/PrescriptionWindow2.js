@@ -65,11 +65,11 @@ function PrescriptionWindow2() {
         }
         console.log(mainPrescription)
         dispatch(addPrescriptionUser(mainPrescription))
-        .then(() => {
-          // Call the generatePrecription function after saving the data
+        // .then(() => {
+        //   // Call the generatePrecription function after saving the data
 
-          generatePrecription();
-        });
+        //   generatePrecription();
+        // });
 
       })
       .catch(e => console.log(e))
@@ -264,7 +264,8 @@ function PrescriptionWindow2() {
     document.getElementById('dos').checked = true;
     setAllowanceState("1");
     setPreDiet(preDiet => ({ ...preDiet, wtodo: document.getElementById('what_todo').value, wto_dont: document.getElementById('what_todont').value }));
-
+  
+    
   };
 
   useEffect(() => {
@@ -272,7 +273,7 @@ function PrescriptionWindow2() {
   }, [dietArray])
 
 
-  // get all funtion
+  // get all function
   const handelAllButtonClick = (e) => {
     if (allowanceState === "4") {
       DiechartList.forEach((element) => {
@@ -396,7 +397,6 @@ function PrescriptionWindow2() {
       }
     });
     doc.save('prescription.pdf');
-
   }
 
   const [medicineAndDoseArray, setMedicineAndDoseArray] = React.useState([]);
@@ -1063,7 +1063,7 @@ function PrescriptionWindow2() {
             </dl>
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handelInstructionclose}>
             Close
           </Button>
@@ -1073,7 +1073,7 @@ function PrescriptionWindow2() {
           >
             Get pdf
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </>
 

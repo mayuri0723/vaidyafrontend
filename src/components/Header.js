@@ -26,8 +26,10 @@ const Header = ({location, history}) => {
     const logoutHandler = () => {
         dispatch(logout())
         localStorage.removeItem('isLogin')
+        // history.push('/');
+        // window.location.reload();
         window.location.reload();
-        history.push('/');
+        window.location.href = '/';
        
     }
 
@@ -104,29 +106,13 @@ const Header = ({location, history}) => {
                                     </Navbar.Brand>
                                 </LinkContainer>
 
-                                {isLogin ? <LinkContainer to={`/patientPrescription`}>
+                                {isLogin && !isAdmin ?<LinkContainer to={`/patientPrescription`}>
                                     <Navbar.Brand>Prescription
                                         &nbsp;  |&nbsp;
                                     </Navbar.Brand>
                                 </LinkContainer>: ""}
 
-                                {/* <NavDropdown title="Know More" id="basic-nav-dropdown" renderMenuOnMount={true}>
-                                    <NavDropdown.Item href="/about-us" >
-                                        About Us
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="/contact-us">
-                                        Contact Us
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="/terms-condition">
-                                        Terms & Conditions
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="/privacy-policy" >
-                                        Privacy & Policy
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="/refund-policy" >
-                                        Refund Policy
-                                    </NavDropdown.Item>
-                                </NavDropdown> */}
+                              
                             </Nav>
                         </Navbar.Collapse>
 
