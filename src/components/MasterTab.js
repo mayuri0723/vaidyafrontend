@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import DocumentTab from './DocumentTab';
-import PrescriptionWindow from './PrescriptionWindow';
+import PrescriptionWindow2 from './PrescriptionWindow2';
 import TabComponent from './TabComponent';
 
 
@@ -22,7 +22,7 @@ const MasterTab = () => {
           <TabComponent />
         </Tab>
         <Tab eventKey="prescription" title="Prescription">
-          <PrescriptionWindow />
+          <PrescriptionWindow2 />
         </Tab>
         {/* <Tab eventKey="document" title="Documents">
          <DocumentTab/>

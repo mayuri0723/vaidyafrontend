@@ -77,79 +77,83 @@ const OldPatientTab = ({ choosePatient }) => {
     <div>
       {/* table Starts */}
       <table className="table table-borderless" bordercolor="#6caaa8" id="myTable">
-        <tr>
-          <td>
-            <Form.Control
-              type="search"
-              placeholder="Search  Patient here"
-              className="me-2"
-              aria-label="Search"
-              onChange={searchPatient}
-            />
-          </td>
-          <td >
-            Contact
-          </td>
-          <td>
-            Add Prescription
-          </td>
-          <td >
-            Full Detail
-          </td>
-        </tr>
-        {uniqueData.map((data, index) => (
-          <tr key={index}>
-            <>
-              <td> {data.Patient[0]?.name}</td>
-              <td>{data.Patient[0]?.phone}</td>
-              <td>
-                <div>
-                  <Button variant="outlined" onClick={handleClickOpen}>
-                    Add
-                  </Button>
-                  <Dialog
-                    fullScreen={fullScreen}
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="responsive-dialog-title"
-                    sx={{
-                      "& .MuiDialog-container": {
-                        "& .MuiPaper-root": {
-                          width: "100%",
-                          maxWidth: "902px",  // Set your width here
-                        },
-                      },
-                    }}
-                  >
-                    <DialogTitle id="responsive-dialog-title">Prescription</DialogTitle>
-                    <DialogContent>
-                      <DialogContentText>
-
-                        <br />
-                     
-                      </DialogContentText>
-                      <PrescriptionWindow />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClose}>Cancel</Button>
-                      <Button onClick={handleClose}>Submit</Button>
-                    </DialogActions>
-                  </Dialog>
-                </div>
+        <tbody>
 
 
-
-              </td>
-              <td>
-                <div>
-                  <Button onClick={setPatientDetail} id={data.Patient[0]?._id} >View</Button>
-                </div>
-                <div style={{ display: "none" }}>
-                </div>
-              </td>
-            </>
+          <tr>
+            <td>
+              <Form.Control
+                type="search"
+                placeholder="Search  Patient here"
+                className="me-2"
+                aria-label="Search"
+                onChange={searchPatient}
+              />
+            </td>
+            <td >
+              Contact
+            </td>
+            <td>
+              Add Prescription
+            </td>
+            <td >
+              Full Detail
+            </td>
           </tr>
-        ))}
+          {uniqueData.map((data, index) => (
+            <tr key={index}>
+              <>
+                <td> {data.Patient[0]?.name}</td>
+                <td>{data.Patient[0]?.phone}</td>
+                <td>
+                  <div>
+                    <Button variant="outlined" onClick={handleClickOpen}>
+                      Add
+                    </Button>
+                    <Dialog
+                      fullScreen={fullScreen}
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="responsive-dialog-title"
+                      sx={{
+                        "& .MuiDialog-container": {
+                          "& .MuiPaper-root": {
+                            width: "100%",
+                            maxWidth: "902px",  // Set your width here
+                          },
+                        },
+                      }}
+                    >
+                      <DialogTitle id="responsive-dialog-title">Prescription</DialogTitle>
+                      <DialogContent>
+                        <DialogContentText>
+
+                          <br />
+
+                        </DialogContentText>
+                        <PrescriptionWindow />
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button onClick={handleClose}>Submit</Button>
+                      </DialogActions>
+                    </Dialog>
+                  </div>
+
+
+
+                </td>
+                <td>
+                  <div>
+                    <Button onClick={setPatientDetail} id={data.Patient[0]?._id} >View</Button>
+                  </div>
+                  <div style={{ display: "none" }}>
+                  </div>
+                </td>
+              </>
+            </tr>
+          ))}
+        </tbody>
       </table>
       {/* table End */}
 

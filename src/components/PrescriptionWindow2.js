@@ -27,7 +27,7 @@ function PrescriptionWindow2() {
     video: "",
     report: "",
     payment: {},
-    Remark: ""
+    Remark: "",
   }
 
   const [prescription, setPrescription] = useState(defaultData);
@@ -65,10 +65,14 @@ function PrescriptionWindow2() {
         }
         console.log(mainPrescription)
         dispatch(addPrescriptionUser(mainPrescription))
+        .then(() => {
+          // Call the generatePrecription function after saving the data
+
+          generatePrecription();
+        });
 
       })
       .catch(e => console.log(e))
-
   }
 
   //dietchart API
@@ -328,47 +332,69 @@ function PrescriptionWindow2() {
     })
   }
 
+  //pdf of precription
   const generatePrecription = () => {
     // Create a new PDF document
-    console.log("pdf is generated")
     const doc = new jsPDF('p', 'pt', 'a4');
+
+    // Set background color for header section
     doc.setFillColor('#ccf9f5');
-    doc.rect(0, 0, doc.internal.pageSize.width, 80, 'F'); // x, y, width, height, style
-    // Get the HTML content to be converted to PDF
-    const content = document.getElementById('pdf-content');
-    // doc.text('Prescription', 200, 80); //string, x-position, y-position
-    var image = new Image();
+    doc.rect(0, 0, doc.internal.pageSize.width, 80, 'F');
+
+    // Add logo
+    const image = new Image();
     image.src = 'images/vaidya-logo-preview.png';
-    doc.addImage(image, 'PNG', doc.internal.pageSize.width - 190, 10, 180, 90);
+    doc.addImage(image, 'PNG', doc.internal.pageSize.width - 600, 10, 190, 100);
+
+    // Add doctor name, phone number, and clinic address
+    doc.setFontSize(10);
+    doc.setTextColor('#444');
+    doc.text('Doctor Name:', 400, 25);
+    doc.setFont('bold');
+    doc.text('DR.Meghhaa', 470, 25);
+    doc.setFont('normal');
+    doc.text('Phone Number:', 400, 40);
+    doc.setFont('bold');
+    doc.text('9175569131', 470, 40);
+    doc.setFont('normal');
+    doc.text('Clinic Address:', 400, 50);
+    doc.setFont('bold');
+    doc.text('Awadh Pride, 2nd Floor,', 470, 50);
+    doc.text(' Metro Pillar no. Opposite 139,', 400, 60)
+    doc.text('Nirant Chowk, Vastral, Ahmedabad-18', 400, 70);
+
+    // Add patient details
     doc.setFontSize(18);
-    // doc.text('Prescription', 100, 120);
-    doc.text(`Patient Name: ${patient?.name}`, 10, 80);
-    doc.text(`Prescription Days:${prescription.prescriptiondays}`, 10, 100);
-    doc.text(`Remark:${prescription.Remark}`, 10, 120);
-   // Show symptoms, medicine names and doses
-  let startY = 160; // Set starting y position for the first item
-  inputFields.forEach((input, index) => {
-    const medicineName = input.med.medicineName;
-    const dose = input.dose;
-
-    // Show medicine name
+    doc.setFont('bold');
+    doc.text('Prescription', 210, 120);
     doc.setFontSize(12);
-    doc.text(`Medicine ${index + 1}: ${medicineName}`, 10, startY);
+    doc.text(`Patient Name: ${patient?.name}`, 50, 180);
+    doc.text(`Prescription Days: ${prescription.prescriptiondays}`, 50, 200);
+    doc.text(`Remark: ${prescription.Remark}`, 50, 220);
 
-    // Show dose
-    doc.setFontSize(10);
-    doc.text(`Dose: ${dose}`, 10, startY + 20);
+    // Add table for medicine details
+    const rows = [];
+    inputFields.forEach((input, index) => {
+      const medicineName = input.med.medicineName;
+      const dose = input.dose;
+      const symptoms = prescription.symptomList;
+      rows.push([`Medicine ${index + 1}`, medicineName, dose]);
+    });
 
-    // Show symptoms
-    const symptoms = prescription.symptoms;
-    doc.setFontSize(10);
-    doc.text(`Symptoms: ${symptomList}`, 10, startY + 40);
-
-    startY += 70; // Increase y position for the next item
-  });
-
-    // doc.addImage(image, 'PNG', 300, 50, 150, 80); //base64 image, format, x-coordinate, y-coordinate, width, height
-    // Save the PDF
+    doc.autoTable({
+      startY: 250,
+      head: [['', 'Medicine Name', 'Dose']],
+      body: rows,
+      theme: 'striped',
+      headStyles: { fillColor: '#ccf9f5', textColor: '#444' },
+      styles: { textColor: '#444' },
+      columnStyles: {
+        0: { fontStyle: 'bold' },
+        1: { cellWidth: 'wrap' },
+        2: { cellWidth: 'wrap' },
+        3: { cellWidth: 'auto' }
+      }
+    });
     doc.save('prescription.pdf');
 
   }
@@ -646,7 +672,7 @@ function PrescriptionWindow2() {
           <tbody>
             <tr>
               <td colSpan={'2'}>
-                <h1>Payment Section</h1>
+                <h1 style={{margin: "8px 0 8px -71px"}}>Payment Section</h1>
                 <table className="table table-bordered border-primary" border={"1px"} style={{ width: "100%" }}>
                   <tbody>
                     <tr>
@@ -951,12 +977,12 @@ function PrescriptionWindow2() {
           <Button type='submit' variant='primary'>
             Save
           </Button>
-          <Button
+          {/* <Button
             variant='primary'
             onClick={() => generatePrecription()}
           >
             Print
-          </Button>
+          </Button> */}
         </div>
 
       </Form>

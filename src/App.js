@@ -61,7 +61,7 @@ import MainPage from './screens/MainPage'
 import PrescriptionData from './screens/PrescriptionData'
 import Signup from './screens/Signup'
 import PrescriptionWindow2 from './components/PrescriptionWindow2'
-
+import PrescriptionLists from './components/PrescriptionLists'
 
 const App = () => {
 
@@ -84,7 +84,8 @@ const App = () => {
                 <Route path='/signup'  component={Signup} />
                 {/* <Route path='/pres'component={PrescriptionWindow2}/> */}
                 <Container>
-                <Route path='/pres'component={PrescriptionWindow2}/>
+                {/* <Route path='/pres'component={PrescriptionWindow2}/> */}
+                <Route path='/patientPrescription'component={PrescriptionLists}/>
                     <Route path='/tab' component={TabComponent} />
                     <Route path='/mastertab' component={MasterTab} />
                     <Route path='/old-mastertab' component={OldMasterTab} />

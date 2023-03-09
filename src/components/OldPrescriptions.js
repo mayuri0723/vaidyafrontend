@@ -106,7 +106,7 @@ const OldPrescriptions = ({ patientIds }) => {
                 <ListGroup variant="flush">
                   {selectedVisit.medicinePrescribed?.map((medicine, index) => (
                     <ListGroup.Item key={index}>
-                      {medicine.medicineData.medicineName} ({medicine.dose})
+                      {medicine.medicineData?.medicineName} ({medicine?.dose})
                     </ListGroup.Item>
                   ))}
                 </ListGroup>

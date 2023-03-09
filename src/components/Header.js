@@ -104,6 +104,11 @@ const Header = ({location, history}) => {
                                     </Navbar.Brand>
                                 </LinkContainer>
 
+                                {isLogin ? <LinkContainer to={`/patientPrescription`}>
+                                    <Navbar.Brand>Prescription
+                                        &nbsp;  |&nbsp;
+                                    </Navbar.Brand>
+                                </LinkContainer>: ""}
 
                                 {/* <NavDropdown title="Know More" id="basic-nav-dropdown" renderMenuOnMount={true}>
                                     <NavDropdown.Item href="/about-us" >
