@@ -41,7 +41,7 @@ const VisitingCalender = ({ patientId }) => {
         <thead>
           <tr>
             <th>
-          No
+             No
             </th>
             <th>
               Visit Date
@@ -50,6 +50,7 @@ const VisitingCalender = ({ patientId }) => {
             <th> Prescription Days</th>
             {/* <th> Lapse Days</th> */}
             <th>Remark</th>
+
           </tr>
         </thead>
 
