@@ -60,7 +60,7 @@ const Register = ({ location, history }) => {
 
   return (
     <>
-      <h1 style={{ marginLeft: "-69px" }}>Sign Up</h1>
+      <h1 style={{ marginLeft: "-69px" }}>Registration</h1>
       <Form onSubmit={submitHandler} className='registerform' >
         <Row>
           <Col md={6}>
